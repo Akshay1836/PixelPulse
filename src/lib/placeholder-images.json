@@ -185,6 +185,30 @@
       "description": "Avatar for testimonial 3",
       "imageUrl": "https://picsum.photos/seed/603/100/100",
       "imageHint": "person avatar"
+    },
+    {
+      "id": "service-ecommerce",
+      "description": "Image for e-commerce service.",
+      "imageUrl": "https://picsum.photos/seed/111/600/800",
+      "imageHint": "shopping cart"
+    },
+    {
+      "id": "service-hero-ecommerce",
+      "description": "Hero image for e-commerce page.",
+      "imageUrl": "https://picsum.photos/seed/507/1600/900",
+      "imageHint": "online store"
+    },
+    {
+      "id": "service-portfolios",
+      "description": "Image for portfolio websites service.",
+      "imageUrl": "https://picsum.photos/seed/112/600/800",
+      "imageHint": "artist portfolio"
+    },
+    {
+      "id": "service-hero-portfolios",
+      "description": "Hero image for portfolio websites page.",
+      "imageUrl": "https://picsum.photos/seed/508/1600/900",
+      "imageHint": "website gallery"
     }
   ]
 }

@@ -6,10 +6,6 @@ import {
   Menu,
   ShoppingCart,
   X,
-  Camera,
-  Clapperboard,
-  Palette,
-  Code,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -21,17 +17,11 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { useCart } from '@/context/CartContext';
 import { Badge } from '../ui/badge';
+import { services } from '@/lib/data';
 
 const navLinks = [
   { href: '/shop', label: 'Shop' },
   { href: '/weddings', label: 'Wedding Specials' },
-];
-
-const serviceLinks = [
-  { href: '/services/photography', label: 'Photography', icon: Camera },
-  { href: '/services/videography', label: 'Videography', icon: Clapperboard },
-  { href: '/services/design', label: 'Design', icon: Palette },
-  { href: '/services/web-dev', label: 'Web Dev', icon: Code },
 ];
 
 export default function Header() {
@@ -67,11 +57,11 @@ export default function Header() {
               Services
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              {serviceLinks.map((link) => (
-                <DropdownMenuItem key={link.href} asChild>
-                  <Link href={link.href} className="flex items-center gap-2">
-                    <link.icon className="h-4 w-4" />
-                    {link.label}
+              {services.map((service) => (
+                <DropdownMenuItem key={service.slug} asChild>
+                  <Link href={`/services/${service.slug}`} className="flex items-center gap-2">
+                    <service.icon className="h-4 w-4" />
+                    {service.title}
                   </Link>
                 </DropdownMenuItem>
               ))}
@@ -116,10 +106,10 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-card shadow-lg p-4">
           <nav className="flex flex-col gap-4">
-            {serviceLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="flex items-center gap-2 text-lg" onClick={() => setIsMenuOpen(false)}>
-                 <link.icon className="h-5 w-5" />
-                {link.label}
+            {services.map((service) => (
+              <Link key={service.slug} href={`/services/${service.slug}`} className="flex items-center gap-2 text-lg" onClick={() => setIsMenuOpen(false)}>
+                 <service.icon className="h-5 w-5" />
+                {service.title}
               </Link>
             ))}
              <hr className="border-border" />

@@ -7,6 +7,7 @@ export type Service = {
   longDescription: string;
   image: string;
   heroImage: string;
+  icon: LucideIcon;
   process: {
     step: number;
     title: string;
@@ -44,7 +45,7 @@ export type Order = {
 };
 
 export type Lead = {
-  id: string;
+  id:string;
   name: string;
   email: string;
   service: string;

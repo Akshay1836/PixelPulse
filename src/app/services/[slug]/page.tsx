@@ -94,18 +94,21 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      <section className="py-20 md:py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <AnimatedOnScroll className="text-center mb-16">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold text-gradient">
-              Our Work
-            </h2>
-          </AnimatedOnScroll>
-          <AnimatedOnScroll>
-            <MasonryGallery images={galleryImages} />
-          </AnimatedOnScroll>
-        </div>
-      </section>
+      {service.gallery.length > 0 && (
+        <section className="py-20 md:py-24">
+          <div className="container mx-auto px-4 md:px-6">
+            <AnimatedOnScroll className="text-center mb-16">
+              <h2 className="font-headline text-4xl md:text-5xl font-bold text-gradient">
+                Our Work
+              </h2>
+            </AnimatedOnScroll>
+            <AnimatedOnScroll>
+              <MasonryGallery images={galleryImages} />
+            </AnimatedOnScroll>
+          </div>
+        </section>
+      )}
+
 
       <section id="booking-form" className="bg-card py-20 md:py-24">
          <div className="container mx-auto px-4 md:px-6">

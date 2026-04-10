@@ -7,6 +7,7 @@ import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 import AnimatedOnScroll from '../shared/AnimatedOnScroll';
 import { useToast } from '@/hooks/use-toast';
 import React, { useState } from 'react';
+import { services } from '@/lib/data';
 
 export default function Footer() {
   const { toast } = useToast();
@@ -54,10 +55,13 @@ export default function Footer() {
             <div>
               <h4 className="font-semibold mb-3">Services</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/services/photography" className="text-muted-foreground hover:text-primary transition-colors">Photography</Link></li>
-                <li><Link href="/services/videography" className="text-muted-foreground hover:text-primary transition-colors">Videography</Link></li>
-                <li><Link href="/services/design" className="text-muted-foreground hover:text-primary transition-colors">Design</Link></li>
-                <li><Link href="/services/web-dev" className="text-muted-foreground hover:text-primary transition-colors">Web Dev</Link></li>
+                {services.map((service) => (
+                  <li key={service.slug}>
+                    <Link href={`/services/${service.slug}`} className="text-muted-foreground hover:text-primary transition-colors">
+                      {service.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             <div>
