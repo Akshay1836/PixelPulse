@@ -25,28 +25,37 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const { toast } = useToast();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Load cart from local storage on initial render
   useEffect(() => {
-    try {
-      const storedCart = localStorage.getItem('cart');
-      if (storedCart) {
-        const parsedCart = JSON.parse(storedCart);
-        if (Array.isArray(parsedCart)) {
-          setCartItems(parsedCart);
+    if (isClient) {
+      try {
+        const storedCart = localStorage.getItem('cart');
+        if (storedCart) {
+          const parsedCart = JSON.parse(storedCart);
+          if (Array.isArray(parsedCart)) {
+            setCartItems(parsedCart);
+          }
         }
+      } catch (error) {
+          console.error("Could not parse cart from localStorage", error);
+          setCartItems([]);
       }
-    } catch (error) {
-        console.error("Could not parse cart from localStorage", error);
-        setCartItems([]);
     }
-  }, []);
+  }, [isClient]);
 
   // Save cart to local storage whenever it changes
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartItems));
-  }, [cartItems]);
+    if (isClient) {
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+    }
+  }, [cartItems, isClient]);
 
   const addToCart = (product: DigitalProduct) => {
     setCartItems((prevItems) => {
@@ -89,11 +98,13 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setCartItems([]);
   };
 
-  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-  const cartTotal = cartItems.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
+  const cartCount = isClient ? cartItems.reduce((acc, item) => acc + item.quantity, 0) : 0;
+  const cartTotal = isClient
+    ? cartItems.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      )
+    : 0;
 
   return (
     <CartContext.Provider
