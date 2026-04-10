@@ -64,38 +64,34 @@ export default function Header() {
             PixelPulse
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 hover:text-primary transition-colors outline-none">
-                Services
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                {services.map((service) => (
-                  <DropdownMenuItem key={service.slug} asChild>
-                    <Link href={`/services/${service.slug}`} className="flex items-center gap-2">
-                      <service.icon className="h-4 w-4" />
-                      {service.title}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="hover:text-primary transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="hidden md:flex items-center gap-6">
+            <nav className="flex items-center gap-6 text-sm font-medium">
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1 hover:text-primary transition-colors outline-none">
+                  Services
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  {services.map((service) => (
+                    <DropdownMenuItem key={service.slug} asChild>
+                      <Link href={`/services/${service.slug}`} className="flex items-center gap-2">
+                        <service.icon className="h-4 w-4" />
+                        {service.title}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
 
-          <div className="flex items-center gap-4 md:hidden">
-             {/* This div is a placeholder to balance the flexbox on mobile, the real toggle is outside */}
-          </div>
-
-          <div className="hidden md:flex items-center gap-4">
             <Button variant="ghost" size="icon" className="relative" onClick={() => setIsCartOpen(true)}>
               {cartCount > 0 && (
                   <Badge className="absolute -top-2 -right-2 h-5 w-5 justify-center p-0">{cartCount}</Badge>
@@ -106,6 +102,10 @@ export default function Header() {
             <Button asChild variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground">
               <Link href="/book">Book a Consultation</Link>
             </Button>
+          </div>
+
+          <div className="flex items-center gap-4 md:hidden">
+             {/* This div is a placeholder to balance the flexbox on mobile, the real toggle is outside */}
           </div>
         </div>
       </header>
