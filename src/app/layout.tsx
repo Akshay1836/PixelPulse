@@ -36,11 +36,6 @@ export default function RootLayout({
           'font-body antialiased bg-background text-foreground min-h-screen flex flex-col'
         )}
       >
-        <div className="fixed top-0 left-0 -z-50 h-screen w-screen bg-background">
-          <div 
-            className="absolute inset-0 -z-10 h-full w-full bg-gradient-to-r from-background via-primary/5 to-background bg-[length:200%_200%] animate-background-pan" 
-          />
-        </div>
         <CartProvider>
           <SiteLayout>{children}</SiteLayout>
           <Toaster />
