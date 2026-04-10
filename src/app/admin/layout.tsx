@@ -66,7 +66,7 @@ export default function AdminLayout({
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground">Marcus</span>
             <Avatar className="h-8 w-8">
-              <AvatarImage src="https://picsum.photos/seed/admin/100/100" />
+              <AvatarImage src="/images/avatar-admin.jpg" />
               <AvatarFallback>M</AvatarFallback>
             </Avatar>
           </div>

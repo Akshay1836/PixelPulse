@@ -5,10 +5,10 @@ import { Award, Zap, Users } from 'lucide-react';
 
 const aboutImage = PlaceHolderImages.find((p) => p.id === 'about-section-image');
 const teamMembers = [
-    { name: 'Marcus', role: 'Founder & Lead Creative', avatar: 'https://picsum.photos/seed/team1/200/200' },
-    { name: 'Elena', role: 'Head of Videography', avatar: 'https://picsum.photos/seed/team2/200/200' },
-    { name: 'Javier', role: 'Lead Designer & Developer', avatar: 'https://picsum.photos/seed/team3/200/200' },
-    { name: 'Chloe', role: 'Client Relations & Producer', avatar: 'https://picsum.photos/seed/team4/200/200' },
+    { name: 'Marcus', role: 'Founder & Lead Creative', avatar: '/images/team-marcus.jpg' },
+    { name: 'Elena', role: 'Head of Videography', avatar: '/images/team-elena.jpg' },
+    { name: 'Javier', role: 'Lead Designer & Developer', avatar: '/images/team-javier.jpg' },
+    { name: 'Chloe', role: 'Client Relations & Producer', avatar: '/images/team-chloe.jpg' },
 ];
 
 const values = [
@@ -35,7 +35,7 @@ export default function AboutPage() {
             <div className="container mx-auto px-4 md:px-6">
                 <AnimatedOnScroll className="text-center">
                     <h1 className="font-headline text-5xl md:text-7xl font-bold text-gradient">
-                        About PixelPulse
+                        About Us
                     </h1>
                     <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
                         We are a collective of artists and technicians passionate about crafting unforgettable visual narratives. Our studio was founded on the principle that every brand, creator, and couple has a unique story worth telling beautifully.

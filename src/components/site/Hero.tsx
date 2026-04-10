@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import AnimatedOnScroll from '../shared/AnimatedOnScroll';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+
+const heroBannerImage = PlaceHolderImages.find((p) => p.id === 'hero-banner');
 
 export function Hero() {
   return (
@@ -20,13 +23,15 @@ export function Hero() {
         
         <div className="relative w-full h-40 md:h-56 my-4 overflow-hidden">
             <div className="w-full h-px bg-foreground/30 absolute top-0" />
-            <Image 
-                src="https://picsum.photos/seed/ocean/1200/400" 
-                alt="Abstract dark ocean waves" 
-                fill 
-                className="object-cover"
-                data-ai-hint="ocean waves"
-            />
+            {heroBannerImage && (
+              <Image 
+                  src={heroBannerImage.imageUrl} 
+                  alt={heroBannerImage.description} 
+                  fill 
+                  className="object-cover"
+                  data-ai-hint={heroBannerImage.imageHint}
+              />
+            )}
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                 <h2 className="font-serif text-2xl md:text-4xl uppercase tracking-[0.3em] text-white">
                     Visual Storytelling

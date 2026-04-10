@@ -9,31 +9,14 @@ import {
   DialogDescription,
 } from '@/components/ui/dialog';
 import { useState } from 'react';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
 
 export default function MasonryGallery({ images: imageUrls }: { images: string[] }) {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<ImagePlaceholder | null>(null);
 
   const imageDetails = imageUrls.map(url => {
-    const detail = PlaceHolderImages.find(p => p.imageUrl === url);
-    if (!detail) {
-      return null;
-    }
-    
-    // Extract width and height from picsum URL e.g. https://picsum.photos/seed/1/600/400
-    const urlParts = detail.imageUrl.split('/');
-    const originalWidth = parseInt(urlParts[urlParts.length - 2], 10);
-    const originalHeight = parseInt(urlParts[urlParts.length - 1], 10);
-
-    return {
-      ...detail,
-      width: originalWidth,
-      height: originalHeight
-    };
-  });
-  
-  const selectedImageDetail = selectedImage ? imageDetails.find(d => d?.imageUrl === selectedImage) : null;
-
+    return PlaceHolderImages.find(p => p.imageUrl === url);
+  }).filter((p): p is ImagePlaceholder => !!p);
 
   return (
     <>
@@ -42,7 +25,7 @@ export default function MasonryGallery({ images: imageUrls }: { images: string[]
           imgDetail && imgDetail.width && imgDetail.height ? (
             <div 
               key={idx} 
-              onClick={() => setSelectedImage(imgDetail.imageUrl)}
+              onClick={() => setSelectedImage(imgDetail)}
               className="overflow-hidden rounded-lg break-inside-avoid cursor-pointer group"
             >
                 <Image
@@ -60,17 +43,17 @@ export default function MasonryGallery({ images: imageUrls }: { images: string[]
 
       <Dialog open={!!selectedImage} onOpenChange={(isOpen) => !isOpen && setSelectedImage(null)}>
         <DialogContent className="max-w-4xl p-0 border-0">
-          {selectedImageDetail && (
+          {selectedImage && selectedImage.width && selectedImage.height && (
             <>
               <DialogHeader className="sr-only">
-                <DialogTitle>{selectedImageDetail.description}</DialogTitle>
-                <DialogDescription>A larger, full-screen view of the image: {selectedImageDetail.description}.</DialogDescription>
+                <DialogTitle>{selectedImage.description}</DialogTitle>
+                <DialogDescription>A larger, full-screen view of the image: {selectedImage.description}.</DialogDescription>
               </DialogHeader>
               <Image
-                src={selectedImageDetail.imageUrl}
-                alt={selectedImageDetail.description}
+                src={selectedImage.imageUrl}
+                alt={selectedImage.description}
                 width={1600}
-                height={1000}
+                height={(1600 / selectedImage.width) * selectedImage.height}
                 className="w-full h-auto object-contain rounded-lg"
               />
             </>

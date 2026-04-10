@@ -3,218 +3,298 @@
     {
       "id": "hero-video-placeholder",
       "description": "A placeholder image for a cinematic video.",
-      "imageUrl": "https://picsum.photos/seed/101/1920/1080",
-      "imageHint": "cinematic dark"
+      "imageUrl": "/images/hero-video-placeholder.jpg",
+      "imageHint": "cinematic dark",
+      "width": 1920,
+      "height": 1080
     },
     {
       "id": "about-section-image",
       "description": "An artistic image representing the studio's aesthetic.",
-      "imageUrl": "https://picsum.photos/seed/102/800/1000",
-      "imageHint": "artistic portrait"
+      "imageUrl": "/images/about-section-image.jpg",
+      "imageHint": "artistic portrait",
+      "width": 800,
+      "height": 1000
     },
     {
       "id": "service-photography",
       "description": "Image for photography service.",
-      "imageUrl": "https://picsum.photos/seed/103/600/800",
-      "imageHint": "camera lens"
+      "imageUrl": "/images/service-photography.jpg",
+      "imageHint": "camera lens",
+      "width": 600,
+      "height": 800
     },
     {
       "id": "service-videography",
       "description": "Image for videography service.",
-      "imageUrl": "https://picsum.photos/seed/104/600/800",
-      "imageHint": "film reel"
+      "imageUrl": "/images/service-videography.jpg",
+      "imageHint": "film reel",
+      "width": 600,
+      "height": 800
     },
     {
       "id": "service-design",
       "description": "Image for design service.",
-      "imageUrl": "https://picsum.photos/seed/105/600/800",
-      "imageHint": "abstract design"
+      "imageUrl": "/images/service-design.jpg",
+      "imageHint": "abstract design",
+      "width": 600,
+      "height": 800
     },
     {
       "id": "service-web-dev",
       "description": "Image for web dev service.",
-      "imageUrl": "https://picsum.photos/seed/106/600/800",
-      "imageHint": "code screen"
+      "imageUrl": "/images/service-web-dev.jpg",
+      "imageHint": "code screen",
+      "width": 600,
+      "height": 800
     },
     {
       "id": "product-preset-1",
       "description": "Product image for moody cinematic presets.",
-      "imageUrl": "https://picsum.photos/seed/107/800/1000",
-      "imageHint": "moody landscape"
+      "imageUrl": "/images/product-preset-1.jpg",
+      "imageHint": "moody landscape",
+      "width": 800,
+      "height": 1000
     },
     {
       "id": "product-preset-2",
       "description": "Product image for true black presets.",
-      "imageUrl": "https://picsum.photos/seed/108/800/1000",
-      "imageHint": "black white"
+      "imageUrl": "/images/product-preset-2.jpg",
+      "imageHint": "black white",
+      "width": 800,
+      "height": 1000
     },
     {
       "id": "product-lut-1",
       "description": "Product image for cinematic LUTs.",
-      "imageUrl": "https://picsum.photos/seed/109/800/1000",
-      "imageHint": "film look"
+      "imageUrl": "/images/product-lut-1.jpg",
+      "imageHint": "film look",
+      "width": 800,
+      "height": 1000
     },
     {
       "id": "product-template-1",
       "description": "Product image for Canva templates.",
-      "imageUrl": "https://picsum.photos/seed/110/800/1000",
-      "imageHint": "social media"
+      "imageUrl": "/images/product-template-1.jpg",
+      "imageHint": "social media",
+      "width": 800,
+      "height": 1000
     },
     {
       "id": "gallery-1",
       "description": "Gallery image 1",
-      "imageUrl": "https://picsum.photos/seed/201/600/900",
-      "imageHint": "portrait fashion"
+      "imageUrl": "/images/gallery-1.jpg",
+      "imageHint": "portrait fashion",
+      "width": 600,
+      "height": 900
     },
     {
       "id": "gallery-2",
       "description": "Gallery image 2",
-      "imageUrl": "https://picsum.photos/seed/202/900/600",
-      "imageHint": "product shot"
+      "imageUrl": "/images/gallery-2.jpg",
+      "imageHint": "product shot",
+      "width": 900,
+      "height": 600
     },
     {
       "id": "gallery-3",
       "description": "Gallery image 3",
-      "imageUrl": "https://picsum.photos/seed/203/600/800",
-      "imageHint": "wedding couple"
+      "imageUrl": "/images/gallery-3.jpg",
+      "imageHint": "wedding couple",
+      "width": 600,
+      "height": 800
     },
     {
       "id": "gallery-4",
       "description": "Gallery image 4",
-      "imageUrl": "https://picsum.photos/seed/204/600/400",
-      "imageHint": "landscape drone"
+      "imageUrl": "/images/gallery-4.jpg",
+      "imageHint": "landscape drone",
+      "width": 600,
+      "height": 400
     },
     {
       "id": "gallery-5",
       "description": "Gallery image 5",
-      "imageUrl": "https://picsum.photos/seed/205/600/750",
-      "imageHint": "architecture detail"
+      "imageUrl": "/images/gallery-5.jpg",
+      "imageHint": "architecture detail",
+      "width": 600,
+      "height": 750
     },
     {
       "id": "gallery-6",
       "description": "Gallery image 6",
-      "imageUrl": "https://picsum.photos/seed/206/900/700",
-      "imageHint": "food photography"
+      "imageUrl": "/images/gallery-6.jpg",
+      "imageHint": "food photography",
+      "width": 900,
+      "height": 700
     },
     {
       "id": "gallery-7",
       "description": "Gallery image 7",
-      "imageUrl": "https://picsum.photos/seed/207/600/900",
-      "imageHint": "street style"
+      "imageUrl": "/images/gallery-7.jpg",
+      "imageHint": "street style",
+      "width": 600,
+      "height": 900
     },
     {
       "id": "gallery-8",
       "description": "Gallery image 8",
-      "imageUrl": "https://picsum.photos/seed/208/800/600",
-      "imageHint": "automotive dark"
+      "imageUrl": "/images/gallery-8.jpg",
+      "imageHint": "automotive dark",
+      "width": 800,
+      "height": 600
     },
     {
       "id": "before-image-1",
       "description": "Before image for preset",
-      "imageUrl": "https://picsum.photos/seed/301/1200/800",
-      "imageHint": "raw photo"
+      "imageUrl": "/images/before-image-1.jpg",
+      "imageHint": "raw photo",
+      "width": 1200,
+      "height": 800
     },
     {
       "id": "after-image-1",
       "description": "After image for preset",
-      "imageUrl": "https://picsum.photos/seed/302/1200/800",
-      "imageHint": "edited photo"
+      "imageUrl": "/images/after-image-1.jpg",
+      "imageHint": "edited photo",
+      "width": 1200,
+      "height": 800
     },
     {
       "id": "template-mockup-1",
       "description": "Template mockup 1",
-      "imageUrl": "https://picsum.photos/seed/401/900/1600",
-      "imageHint": "phone screen"
+      "imageUrl": "/images/template-mockup-1.jpg",
+      "imageHint": "phone screen",
+      "width": 900,
+      "height": 1600
     },
     {
       "id": "template-mockup-2",
       "description": "Template mockup 2",
-      "imageUrl": "https://picsum.photos/seed/402/900/1600",
-      "imageHint": "instagram post"
+      "imageUrl": "/images/template-mockup-2.jpg",
+      "imageHint": "instagram post",
+      "width": 900,
+      "height": 1600
     },
     {
       "id": "service-hero-photography",
       "description": "Hero image for photography page",
-      "imageUrl": "https://picsum.photos/seed/501/1600/900",
-      "imageHint": "photographer action"
+      "imageUrl": "/images/service-hero-photography.jpg",
+      "imageHint": "photographer action",
+      "width": 1600,
+      "height": 900
     },
     {
       "id": "service-hero-videography",
       "description": "Hero image for videography page",
-      "imageUrl": "https://picsum.photos/seed/502/1600/900",
-      "imageHint": "video camera"
+      "imageUrl": "/images/service-hero-videography.jpg",
+      "imageHint": "video camera",
+      "width": 1600,
+      "height": 900
     },
     {
       "id": "service-hero-design",
       "description": "Hero image for design page",
-      "imageUrl": "https://picsum.photos/seed/503/1600/900",
-      "imageHint": "design sketch"
+      "imageUrl": "/images/service-hero-design.jpg",
+      "imageHint": "design sketch",
+      "width": 1600,
+      "height": 900
     },
     {
       "id": "service-hero-web-dev",
       "description": "Hero image for web dev page",
-      "imageUrl": "https://picsum.photos/seed/504/1600/900",
-      "imageHint": "laptop code"
+      "imageUrl": "/images/service-hero-web-dev.jpg",
+      "imageHint": "laptop code",
+      "width": 1600,
+      "height": 900
     },
     {
       "id": "service-hero-weddings",
       "description": "Hero image for weddings page",
-      "imageUrl": "https://picsum.photos/seed/505/1600/900",
-      "imageHint": "wedding rings"
+      "imageUrl": "/images/service-hero-weddings.jpg",
+      "imageHint": "wedding rings",
+      "width": 1600,
+      "height": 900
     },
     {
       "id": "service-hero-marketing",
       "description": "Hero image for marketing page",
-      "imageUrl": "https://picsum.photos/seed/506/1600/900",
-      "imageHint": "analytics chart"
+      "imageUrl": "/images/service-hero-marketing.jpg",
+      "imageHint": "analytics chart",
+      "width": 1600,
+      "height": 900
     },
     {
       "id": "testimonial-1",
       "description": "Avatar for testimonial 1",
-      "imageUrl": "https://picsum.photos/seed/601/100/100",
-      "imageHint": "person avatar"
+      "imageUrl": "/images/testimonial-1.jpg",
+      "imageHint": "person avatar",
+      "width": 100,
+      "height": 100
     },
     {
       "id": "testimonial-2",
       "description": "Avatar for testimonial 2",
-      "imageUrl": "https://picsum.photos/seed/602/100/100",
-      "imageHint": "person avatar"
+      "imageUrl": "/images/testimonial-2.jpg",
+      "imageHint": "person avatar",
+      "width": 100,
+      "height": 100
     },
     {
       "id": "testimonial-3",
       "description": "Avatar for testimonial 3",
-      "imageUrl": "https://picsum.photos/seed/603/100/100",
-      "imageHint": "person avatar"
+      "imageUrl": "/images/testimonial-3.jpg",
+      "imageHint": "person avatar",
+      "width": 100,
+      "height": 100
     },
     {
       "id": "service-ecommerce",
       "description": "Image for e-commerce service.",
-      "imageUrl": "https://picsum.photos/seed/111/600/800",
-      "imageHint": "shopping cart"
+      "imageUrl": "/images/service-ecommerce.jpg",
+      "imageHint": "shopping cart",
+      "width": 600,
+      "height": 800
     },
     {
       "id": "service-hero-ecommerce",
       "description": "Hero image for e-commerce page.",
-      "imageUrl": "https://picsum.photos/seed/507/1600/900",
-      "imageHint": "online store"
+      "imageUrl": "/images/service-hero-ecommerce.jpg",
+      "imageHint": "online store",
+      "width": 1600,
+      "height": 900
     },
     {
       "id": "service-portfolios",
       "description": "Image for portfolio websites service.",
-      "imageUrl": "https://picsum.photos/seed/112/600/800",
-      "imageHint": "artist portfolio"
+      "imageUrl": "/images/service-portfolios.jpg",
+      "imageHint": "artist portfolio",
+      "width": 600,
+      "height": 800
     },
     {
       "id": "service-hero-portfolios",
       "description": "Hero image for portfolio websites page.",
-      "imageUrl": "https://picsum.photos/seed/508/1600/900",
-      "imageHint": "website gallery"
+      "imageUrl": "/images/service-hero-portfolios.jpg",
+      "imageHint": "website gallery",
+      "width": 1600,
+      "height": 900
     },
     {
       "id": "home-cta-background",
       "description": "Background image for the home page call-to-action section.",
-      "imageUrl": "https://picsum.photos/seed/701/1600/600",
-      "imageHint": "creative workspace"
+      "imageUrl": "/images/home-cta-background.jpg",
+      "imageHint": "creative workspace",
+      "width": 1600,
+      "height": 600
+    },
+    {
+      "id": "hero-banner",
+      "description": "Abstract dark ocean waves banner for hero section.",
+      "imageUrl": "/images/hero-banner.jpg",
+      "imageHint": "ocean waves",
+      "width": 1200,
+      "height": 400
     }
   ]
 }
