@@ -167,6 +167,24 @@
       "description": "Hero image for marketing page",
       "imageUrl": "https://picsum.photos/seed/506/1600/900",
       "imageHint": "analytics chart"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Avatar for testimonial 1",
+      "imageUrl": "https://picsum.photos/seed/601/100/100",
+      "imageHint": "person avatar"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Avatar for testimonial 2",
+      "imageUrl": "https://picsum.photos/seed/602/100/100",
+      "imageHint": "person avatar"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Avatar for testimonial 3",
+      "imageUrl": "https://picsum.photos/seed/603/100/100",
+      "imageHint": "person avatar"
     }
   ]
 }

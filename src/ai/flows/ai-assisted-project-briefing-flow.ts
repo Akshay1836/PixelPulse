@@ -89,7 +89,7 @@ const aiAssistedProjectBriefingPrompt = ai.definePrompt({
   name: 'aiAssistedProjectBriefingPrompt',
   input: { schema: AiAssistedProjectBriefingInputSchema },
   output: { schema: AiAssistedProjectBriefingOutputSchema },
-  prompt: `You are an AI-assisted project briefing tool for Aether Creative Studio. Your primary goal is to help potential clients articulate their project requirements into a comprehensive and clear project brief.
+  prompt: `You are an AI-assisted project briefing tool for PixelPulse Creative Studio. Your primary goal is to help potential clients articulate their project requirements into a comprehensive and clear project brief.
 
 Based on the client's initial query and their selected service interest, generate a detailed project brief. Populate all fields in the output schema to the best of your ability, inferring details where reasonable from the provided text and common project requirements.
 

@@ -29,7 +29,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
             <h3 className="text-xl font-headline font-bold text-gradient mb-4">
-              Aether Creative Studio
+              PixelPulse Creative Studio
             </h3>
             <p className="text-sm text-muted-foreground">
               Cinematic visuals for brands and creators who dare to be different.
@@ -98,7 +98,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-border pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Aether Creative Studio. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} PixelPulse Creative Studio. All Rights Reserved.</p>
         </div>
       </AnimatedOnScroll>
     </footer>

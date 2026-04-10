@@ -7,7 +7,7 @@ import CartSheet from '@/components/site/CartSheet';
 import SiteLayout from '@/components/site/SiteLayout';
 
 export const metadata: Metadata = {
-  title: 'Aether Creative Studio',
+  title: 'PixelPulse Creative Studio',
   description:
     'A premier creative studio and digital marketplace for high-end assets.',
 };

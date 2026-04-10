@@ -1,4 +1,4 @@
-import type { Service, DigitalProduct, Order, Lead } from '@/lib/types';
+import type { Service, DigitalProduct, Order, Lead, Testimonial } from '@/lib/types';
 import { PlaceHolderImages } from './placeholder-images';
 
 function findImage(id: string) {
@@ -273,4 +273,25 @@ export const mockLeads: Lead[] = [
     { id: 'LEAD001', name: 'Sarah & David', email: 'sarah.david@example.com', service: 'Wedding Specials', date: '2024-07-21', status: 'New' },
     { id: 'LEAD002', name: 'Marcus', email: 'marcus.brand@example.com', service: 'Brand Identity Kit', date: '2024-07-20', status: 'Contacted' },
     { id: 'LEAD003', name: 'Aspiring Biz', email: 'biz@example.com', service: 'Photography', date: '2024-07-18', status: 'Closed' },
+];
+
+export const testimonials: Testimonial[] = [
+  {
+    quote: "PixelPulse transformed our brand's visual identity. Their attention to detail and cinematic quality is unmatched. The results were beyond our wildest expectations.",
+    name: 'Alex Johnson',
+    title: 'CEO, Startup Inc.',
+    avatar: findImage('testimonial-1'),
+  },
+  {
+    quote: "The wedding video they created was a masterpiece. They captured the day so perfectly, it felt like reliving every moment. I can't recommend them enough.",
+    name: 'Samantha & Leo',
+    title: 'Newlyweds',
+    avatar: findImage('testimonial-2'),
+  },
+  {
+    quote: 'As a photographer, their digital presets have become an essential part of my workflow. They save me hours of editing and give my photos a professional edge.',
+    name: 'Emily Carter',
+    title: 'Freelance Photographer',
+    avatar: findImage('testimonial-3'),
+  },
 ];

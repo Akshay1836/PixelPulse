@@ -14,13 +14,13 @@ export function Hero() {
         <AnimatedOnScroll>
           <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter">
             <span className="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 via-neutral-200 to-neutral-500">
-              Artistry in Every Pixel
+              Where Vision Meets Velocity
             </span>
           </h1>
         </AnimatedOnScroll>
         <AnimatedOnScroll delay={200}>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-            Aether is a creative studio and digital marketplace for brands and creators who seek the exceptional.
+            PixelPulse is a creative studio and digital marketplace for brands and creators who seek the exceptional.
           </p>
         </AnimatedOnScroll>
         <AnimatedOnScroll delay={400} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">

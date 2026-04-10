@@ -39,7 +39,7 @@ export default function AdminLayout({
         <SidebarHeader>
           <div className="flex items-center gap-2">
             <Link href="/" className="text-xl font-headline font-bold text-gradient">
-              Aether
+              PixelPulse
             </Link>
             <span className="text-sm text-muted-foreground">Admin</span>
           </div>
