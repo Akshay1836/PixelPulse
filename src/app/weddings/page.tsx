@@ -68,7 +68,7 @@ const weddingPackages = [
 export default function WeddingsPage() {
   return (
     <div>
-      <section className="relative h-[60vh] min-h-[400px] w-full">
+      <section className="relative h-[80vh] min-h-[500px] w-full">
         {heroImage && (
             <Image
             src={heroImage.imageUrl}

@@ -27,7 +27,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
   return (
     <div>
-      <section className="relative h-[60vh] min-h-[400px] w-full">
+      <section className="relative h-[80vh] min-h-[500px] w-full">
         <Image
           src={service.heroImage}
           alt={service.title}

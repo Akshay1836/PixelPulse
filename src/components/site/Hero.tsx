@@ -5,7 +5,7 @@ import AnimatedOnScroll from '../shared/AnimatedOnScroll';
 
 export function Hero() {
   return (
-    <section className="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center text-center overflow-hidden">
+    <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center text-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <AnimatedOnScroll>
