@@ -91,35 +91,41 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="hidden md:inline-flex relative" onClick={() => setIsCartOpen(true)}>
+          <div className="flex items-center gap-4 md:hidden">
+             {/* This div is a placeholder to balance the flexbox on mobile, the real toggle is outside */}
+          </div>
+
+          <div className="hidden md:flex items-center gap-4">
+            <Button variant="ghost" size="icon" className="relative" onClick={() => setIsCartOpen(true)}>
               {cartCount > 0 && (
                   <Badge className="absolute -top-2 -right-2 h-5 w-5 justify-center p-0">{cartCount}</Badge>
               )}
               <ShoppingCart className="h-5 w-5" />
               <span className="sr-only">Cart</span>
             </Button>
-            <Button asChild variant="outline" className="hidden md:inline-flex border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground">
+            <Button asChild variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground">
               <Link href="/book">Book a Consultation</Link>
-            </Button>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(true)}
-            >
-              <Menu />
-              <span className="sr-only">Toggle menu</span>
             </Button>
           </div>
         </div>
       </header>
 
+      {/* Mobile Menu Toggle Button */}
+      <Button
+        variant="ghost"
+        size="icon"
+        className="md:hidden fixed top-5 right-4 z-[101]"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        <Menu className={cn("h-6 w-6 transition-all duration-300 ease-in-out", isMenuOpen ? 'rotate-90 scale-0' : 'rotate-0 scale-100')} />
+        <X className={cn("h-6 w-6 absolute transition-all duration-300 ease-in-out", isMenuOpen ? 'rotate-0 scale-100' : '-rotate-90 scale-0')} />
+        <span className="sr-only">Toggle menu</span>
+      </Button>
+
       {/* Mobile Menu */}
       <div
         className={cn(
-          "md:hidden fixed inset-0 bg-background z-[100] p-6 flex flex-col transition-transform duration-300 ease-in-out",
+          "md:hidden fixed inset-0 bg-background z-[100] p-6 flex flex-col transition-transform duration-500 ease-in-out",
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -127,14 +133,6 @@ export default function Header() {
             <Link href="/" className="text-2xl font-headline font-bold text-gradient" onClick={() => setIsMenuOpen(false)}>
               PixelPulse
             </Link>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <X />
-              <span className="sr-only">Close menu</span>
-            </Button>
         </div>
         <nav className="flex flex-col gap-6 mt-12 flex-grow">
           {services.map((service) => (
