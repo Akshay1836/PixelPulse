@@ -2,11 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
-import Header from '@/components/site/Header';
-import Footer from '@/components/site/Footer';
-import WhatsAppButton from '@/components/site/WhatsAppButton';
 import { CartProvider } from '@/context/CartContext';
 import CartSheet from '@/components/site/CartSheet';
+import SiteLayout from '@/components/site/SiteLayout';
 
 export const metadata: Metadata = {
   title: 'Aether Creative Studio',
@@ -39,10 +37,7 @@ export default function RootLayout({
         )}
       >
         <CartProvider>
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-          <WhatsAppButton />
+          <SiteLayout>{children}</SiteLayout>
           <Toaster />
           <CartSheet />
         </CartProvider>
