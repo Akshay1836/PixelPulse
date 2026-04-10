@@ -1,14 +1,29 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-// Ensure the secret key is available
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error('STRIPE_SECRET_KEY is not set in .env file');
+let stripe: Stripe | null = null;
+
+function getStripe() {
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  if (!secretKey) {
+    return null;
+  }
+  if (!stripe) {
+    stripe = new Stripe(secretKey);
+  }
+  return stripe;
 }
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
 export async function POST(request: Request) {
+  const stripeClient = getStripe();
+
+  if (!stripeClient) {
+    return NextResponse.json(
+      { error: 'Stripe has not been configured. Please add STRIPE_SECRET_KEY to your environment variables.' },
+      { status: 500 }
+    );
+  }
+
   try {
     const { amount } = await request.json();
 
@@ -17,7 +32,7 @@ export async function POST(request: Request) {
     }
 
     // Create a PaymentIntent with the order amount and currency
-    const paymentIntent = await stripe.paymentIntents.create({
+    const paymentIntent = await stripeClient.paymentIntents.create({
       amount: Math.round(amount), // amount in cents
       currency: 'usd',
       automatic_payment_methods: {
