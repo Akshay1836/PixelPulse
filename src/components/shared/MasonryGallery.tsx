@@ -4,6 +4,9 @@ import Image from 'next/image';
 import {
   Dialog,
   DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
 } from '@/components/ui/dialog';
 import { useState } from 'react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -28,6 +31,9 @@ export default function MasonryGallery({ images: imageUrls }: { images: string[]
       height: originalHeight
     };
   });
+  
+  const selectedImageDetail = selectedImage ? imageDetails.find(d => d?.imageUrl === selectedImage) : null;
+
 
   return (
     <>
@@ -54,14 +60,20 @@ export default function MasonryGallery({ images: imageUrls }: { images: string[]
 
       <Dialog open={!!selectedImage} onOpenChange={(isOpen) => !isOpen && setSelectedImage(null)}>
         <DialogContent className="max-w-4xl p-0 border-0">
-          {selectedImage && (
-            <Image
-              src={selectedImage}
-              alt="Selected gallery image"
-              width={1600}
-              height={1000}
-              className="w-full h-auto object-contain rounded-lg"
-            />
+          {selectedImageDetail && (
+            <>
+              <DialogHeader className="sr-only">
+                <DialogTitle>{selectedImageDetail.description}</DialogTitle>
+                <DialogDescription>A larger, full-screen view of the image: {selectedImageDetail.description}.</DialogDescription>
+              </DialogHeader>
+              <Image
+                src={selectedImageDetail.imageUrl}
+                alt={selectedImageDetail.description}
+                width={1600}
+                height={1000}
+                className="w-full h-auto object-contain rounded-lg"
+              />
+            </>
           )}
         </DialogContent>
       </Dialog>
