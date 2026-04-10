@@ -8,7 +8,7 @@ import { HomeCtaSection } from '@/components/site/HomeCtaSection';
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center overflow-hidden">
       <Hero />
       <AnimatedOnScroll className="w-full">
         <ServicesSection />

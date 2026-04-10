@@ -11,9 +11,9 @@ import AnimatedOnScroll from '@/components/shared/AnimatedOnScroll';
 import { Badge } from '@/components/ui/badge';
 import { useCart } from '@/context/CartContext';
 
-export default function ProductDetailPage({ params }: { params: { slug: string } }) {
+export default function ProductDetailPage({ params: { slug } }: { params: { slug: string } }) {
   const { addToCart } = useCart();
-  const product = digitalProducts.find((p) => p.slug === params.slug);
+  const product = digitalProducts.find((p) => p.slug === slug);
 
   if (!product) {
     notFound();
