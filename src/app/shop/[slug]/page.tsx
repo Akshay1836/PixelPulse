@@ -1,6 +1,6 @@
 'use client';
 
-import { notFound } from 'next/navigation';
+import { notFound, useParams } from 'next/navigation';
 import Image from 'next/image';
 import { digitalProducts } from '@/lib/data';
 import { Button } from '@/components/ui/button';
@@ -11,9 +11,10 @@ import AnimatedOnScroll from '@/components/shared/AnimatedOnScroll';
 import { Badge } from '@/components/ui/badge';
 import { useCart } from '@/context/CartContext';
 
-export default function ProductDetailPage({ params: { slug } }: { params: { slug: string } }) {
+export default function ProductDetailPage() {
+  const params = useParams<{ slug: string }>();
   const { addToCart } = useCart();
-  const product = digitalProducts.find((p) => p.slug === slug);
+  const product = digitalProducts.find((p) => p.slug === params.slug);
 
   if (!product) {
     notFound();
