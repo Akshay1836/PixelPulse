@@ -5,6 +5,8 @@ import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import WhatsAppButton from '@/components/site/WhatsAppButton';
+import { CartProvider } from '@/context/CartContext';
+import CartSheet from '@/components/site/CartSheet';
 
 export const metadata: Metadata = {
   title: 'Aether Creative Studio',
@@ -36,11 +38,14 @@ export default function RootLayout({
           'font-body antialiased bg-background text-foreground min-h-screen flex flex-col'
         )}
       >
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <Toaster />
+        <CartProvider>
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          <WhatsAppButton />
+          <Toaster />
+          <CartSheet />
+        </CartProvider>
       </body>
     </html>
   );

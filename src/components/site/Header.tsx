@@ -19,6 +19,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useCart } from '@/context/CartContext';
+import { Badge } from '../ui/badge';
 
 const navLinks = [
   { href: '/shop', label: 'Shop' },
@@ -35,6 +37,7 @@ const serviceLinks = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { cartCount, setIsCartOpen } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,7 +89,10 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" className="hidden md:inline-flex">
+          <Button variant="ghost" size="icon" className="hidden md:inline-flex relative" onClick={() => setIsCartOpen(true)}>
+            {cartCount > 0 && (
+                <Badge className="absolute -top-2 -right-2 h-5 w-5 justify-center p-0">{cartCount}</Badge>
+            )}
             <ShoppingCart className="h-5 w-5" />
             <span className="sr-only">Cart</span>
           </Button>
@@ -122,9 +128,18 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <Button asChild variant="default" size="lg" className="mt-4" onClick={() => setIsMenuOpen(false)}>
-              <Link href="/book">Book a Consultation</Link>
-            </Button>
+            <div className="flex items-center justify-between mt-4">
+                <Button asChild variant="default" size="lg" onClick={() => setIsMenuOpen(false)}>
+                  <Link href="/book">Book a Consultation</Link>
+                </Button>
+                <Button variant="ghost" size="icon" className="relative" onClick={() => { setIsMenuOpen(false); setIsCartOpen(true); }}>
+                    {cartCount > 0 && (
+                        <Badge className="absolute -top-2 -right-2 h-5 w-5 justify-center p-0">{cartCount}</Badge>
+                    )}
+                    <ShoppingCart className="h-5 w-5" />
+                    <span className="sr-only">Cart</span>
+                </Button>
+            </div>
           </nav>
         </div>
       )}

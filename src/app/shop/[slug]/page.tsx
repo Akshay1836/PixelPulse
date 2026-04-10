@@ -1,20 +1,18 @@
+'use client';
+
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { digitalProducts } from '@/lib/data';
 import { Button } from '@/components/ui/button';
-import { ShoppingCart, Check, Info } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import BeforeAfterSlider from '@/components/shared/BeforeAfterSlider';
 import AnimatedOnScroll from '@/components/shared/AnimatedOnScroll';
 import { Badge } from '@/components/ui/badge';
-
-export async function generateStaticParams() {
-  return digitalProducts.map((product) => ({
-    slug: product.slug,
-  }));
-}
+import { useCart } from '@/context/CartContext';
 
 export default function ProductDetailPage({ params }: { params: { slug: string } }) {
+  const { addToCart } = useCart();
   const product = digitalProducts.find((p) => p.slug === params.slug);
 
   if (!product) {
@@ -64,7 +62,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
             <p className="mt-4 text-lg text-muted-foreground">{product.description}</p>
             
             <div className="mt-8">
-                <Button size="lg" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto" onClick={() => addToCart(product)}>
                     <ShoppingCart className="mr-2 h-5 w-5" />
                     Add to Cart
                 </Button>
