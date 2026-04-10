@@ -13,7 +13,7 @@ export function ProductCard({ product }: { product: DigitalProduct }) {
   const { addToCart } = useCart();
 
   return (
-    <Card className="overflow-hidden group text-left h-full flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/20">
+    <Card className="overflow-hidden group text-left h-full flex flex-col transition-colors duration-300 border border-foreground/20 hover:border-foreground/80 bg-transparent">
       <Link href={`/shop/${product.slug}`} className="block overflow-hidden">
         <div className="relative aspect-[4/5]">
           <Image

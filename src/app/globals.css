@@ -4,99 +4,98 @@
 
 @layer base {
   :root {
-    --background: 155 53% 21%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 8%;
+    --foreground: 40 18% 85%;
 
-    --card: 155 55% 23%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 8%;
+    --card-foreground: 40 18% 85%;
 
-    --popover: 155 53% 21%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 40 18% 85%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 155 53% 21%;
+    --primary: 40 18% 85%;
+    --primary-foreground: 0 0% 8%;
 
-    --secondary: 155 55% 23%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 40 18% 85%;
 
-    --muted: 155 20% 40%;
-    --muted-foreground: 155 10% 70%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 155 55% 23%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 0 0% 14%;
+    --accent-foreground: 40 18% 85%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 155 30% 35%;
-    --input: 155 30% 35%;
-    --ring: 155 53% 21%;
+    --border: 40 18% 85%;
+    --input: 0 0% 14%;
+    --ring: 40 18% 85%;
 
-    --chart-1: 0 0% 98%;
-    --chart-2: 0 0% 85%;
-    --chart-3: 0 0% 75%;
-    --chart-4: 0 0% 65%;
-    --chart-5: 0 0% 55%;
+    --chart-1: 40 18% 85%;
+    --chart-2: 40 18% 75%;
+    --chart-3: 40 18% 65%;
+    --chart-4: 40 18% 55%;
+    --chart-5: 40 18% 45%;
 
-    --radius: 1rem;
+    --radius: 0rem;
     
-    --sidebar-background: 155 53% 21%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 0 0% 98%;
-    --sidebar-primary-foreground: 155 53% 21%;
-    --sidebar-accent: 155 55% 23%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 155 30% 35%;
-    --sidebar-ring: 155 53% 21%;
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 40 18% 85%;
+    --sidebar-primary: 40 18% 85%;
+    --sidebar-primary-foreground: 0 0% 8%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 40 18% 85%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 40 18% 85%;
   }
 
   .dark {
-    --background: 155 53% 21%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 8%;
+    --foreground: 40 18% 85%;
 
-    --card: 155 55% 23%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 8%;
+    --card-foreground: 40 18% 85%;
 
-    --popover: 155 53% 21%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 40 18% 85%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 155 53% 21%;
+    --primary: 40 18% 85%;
+    --primary-foreground: 0 0% 8%;
 
-    --secondary: 155 55% 23%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 40 18% 85%;
 
-    --muted: 155 20% 40%;
-    --muted-foreground: 155 10% 70%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 155 55% 23%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 0 0% 14%;
+    --accent-foreground: 40 18% 85%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 155 30% 35%;
-    --input: 155 30% 35%;
-    --ring: 155 53% 21%;
+    --border: 40 18% 85%;
+    --input: 0 0% 14%;
+    --ring: 40 18% 85%;
 
-    --sidebar-background: 155 53% 21%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 0 0% 98%;
-    --sidebar-primary-foreground: 155 53% 21%;
-    --sidebar-accent: 155 55% 23%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 155 30% 35%;
-    --sidebar-ring: 155 53% 21%;
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 40 18% 85%;
+    --sidebar-primary: 40 18% 85%;
+    --sidebar-primary-foreground: 0 0% 8%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 40 18% 85%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 40 18% 85%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border/20;
   }
   body {
     @apply bg-background text-foreground;
-    background-image: repeating-linear-gradient(90deg, hsl(var(--background)), hsl(var(--background)) 20px, hsl(var(--card)) 20px, hsl(var(--card)) 40px);
     scroll-behavior: smooth;
   }
   ::selection {

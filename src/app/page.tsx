@@ -2,9 +2,7 @@ import AnimatedOnScroll from '@/components/shared/AnimatedOnScroll';
 import { Hero } from '@/components/site/Hero';
 import { ServicesSection } from '@/components/site/ServicesSection';
 import { FeaturedProducts } from '@/components/site/FeaturedProducts';
-import { WhyChooseUsSection } from '@/components/site/WhyChooseUsSection';
 import { TestimonialsSection } from '@/components/site/TestimonialsSection';
-import { HomeCtaSection } from '@/components/site/HomeCtaSection';
 import { AboutSection } from '@/components/site/AboutSection';
 
 export default function Home() {
@@ -17,15 +15,8 @@ export default function Home() {
       <AnimatedOnScroll className="w-full">
         <ServicesSection />
       </AnimatedOnScroll>
-    
-      <AnimatedOnScroll className="w-full">
-        <WhyChooseUsSection />
-      </AnimatedOnScroll>
       <AnimatedOnScroll className="w-full">
         <FeaturedProducts />
-      </AnimatedOnScroll>
-      <AnimatedOnScroll className="w-full">
-        <HomeCtaSection />
       </AnimatedOnScroll>
       <AnimatedOnScroll className="w-full">
         <TestimonialsSection />

@@ -17,7 +17,7 @@ export function ServicesSection() {
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
             <Link href={`/services/${service.slug}`} key={service.slug} className="group block">
-              <Card className="h-full overflow-hidden transition-all duration-300 group-hover:border-primary/20 group-hover:shadow-lg group-hover:shadow-primary/10 transform group-hover:-translate-y-2">
+              <Card className="h-full overflow-hidden transition-colors duration-300 border border-foreground/20 group-hover:border-foreground/80 bg-transparent">
                 <div className="relative h-80">
                   <Image
                     src={service.image}

@@ -55,19 +55,18 @@ export default function Header() {
         className={cn(
           'sticky top-0 z-50 w-full transition-all duration-300',
           isScrolled
-            ? 'bg-background/80 backdrop-blur-lg border-b border-border'
+            ? 'bg-background/80 backdrop-blur-lg border-b border-border/10'
             : 'bg-transparent'
         )}
       >
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-          <Link href="/" className="text-2xl font-headline font-bold uppercase">
+          <Link href="/" className="text-3xl font-headline font-bold">
             PixelPulse
           </Link>
 
-          <div className="hidden md:flex items-center gap-6">
-            <nav className="flex items-center gap-6 text-sm font-medium">
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 hover:text-primary transition-colors outline-none">
+                <DropdownMenuTrigger className="flex items-center gap-1 hover:text-primary transition-colors outline-none uppercase tracking-wider">
                   Services
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
@@ -85,13 +84,12 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="hover:text-primary transition-colors"
+                  className="hover:text-primary transition-colors uppercase tracking-wider"
                 >
                   {link.label}
                 </Link>
               ))}
-            </nav>
-            <div className='h-6 w-px bg-border'/>
+            <div className='h-6 w-px bg-border/20'/>
             <Button variant="ghost" size="icon" className="relative" onClick={() => setIsCartOpen(true)}>
               {cartCount > 0 && (
                   <Badge variant="secondary" className="absolute -top-2 -right-2 h-5 w-5 justify-center p-0">{cartCount}</Badge>
@@ -99,28 +97,23 @@ export default function Header() {
               <ShoppingCart className="h-5 w-5" />
               <span className="sr-only">Cart</span>
             </Button>
-            <Button asChild variant="outline">
+            <Button asChild>
               <Link href="/book">Book a Consultation</Link>
             </Button>
-          </div>
+          </nav>
 
           <div className="flex items-center gap-4 md:hidden">
-             {/* This div is a placeholder to balance the flexbox on mobile, the real toggle is outside */}
+             <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
           </div>
         </div>
       </header>
-
-      {/* Mobile Menu Toggle Button */}
-      <Button
-        variant="ghost"
-        size="icon"
-        className="md:hidden fixed top-5 right-4 z-[101]"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        <Menu className={cn("h-6 w-6 transition-all duration-300 ease-in-out", isMenuOpen ? 'rotate-90 scale-0' : 'rotate-0 scale-100')} />
-        <X className={cn("h-6 w-6 absolute transition-all duration-300 ease-in-out", isMenuOpen ? 'rotate-0 scale-100' : '-rotate-90 scale-0')} />
-        <span className="sr-only">Toggle menu</span>
-      </Button>
 
       {/* Mobile Menu */}
       <div
@@ -130,9 +123,17 @@ export default function Header() {
         )}
       >
         <div className="flex items-center justify-between">
-            <Link href="/" className="text-2xl font-headline font-bold text-gradient" onClick={() => setIsMenuOpen(false)}>
+            <Link href="/" className="text-2xl font-headline font-bold" onClick={() => setIsMenuOpen(false)}>
               PixelPulse
             </Link>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <X className="h-6 w-6" />
+              <span className="sr-only">Close menu</span>
+            </Button>
         </div>
         <nav className="flex flex-col gap-6 mt-12 flex-grow">
           {services.map((service) => (
@@ -141,15 +142,15 @@ export default function Header() {
               {service.title}
             </Link>
           ))}
-           <hr className="border-border my-2" />
+           <hr className="border-border/20 my-2" />
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>
               {link.label}
             </Link>
           ))}
         </nav>
-        <div className="mt-auto flex items-center justify-between border-t border-border pt-6">
-            <Button asChild variant="default" size="lg" onClick={() => setIsMenuOpen(false)}>
+        <div className="mt-auto flex items-center justify-between border-t border-border/20 pt-6">
+            <Button asChild size="lg" onClick={() => setIsMenuOpen(false)}>
               <Link href="/book">Book a Consultation</Link>
             </Button>
             <Button variant="ghost" size="icon" className="relative h-10 w-10" onClick={() => { setIsMenuOpen(false); setIsCartOpen(true); }}>

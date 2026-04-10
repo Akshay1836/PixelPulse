@@ -1,50 +1,39 @@
 'use client';
 
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 import AnimatedOnScroll from '../shared/AnimatedOnScroll';
-import { useToast } from '@/hooks/use-toast';
-import React, { useState } from 'react';
-import { services } from '@/lib/data';
 import { Separator } from '../ui/separator';
+import { services } from '@/lib/data';
+
 
 export default function Footer() {
-  const { toast } = useToast();
-  const [email, setEmail] = useState('');
-
-  const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (email) {
-      toast({
-        title: 'Subscribed!',
-        description: "You've been added to our newsletter.",
-      });
-      setEmail('');
-    }
-  };
 
   return (
-    <footer className="bg-transparent text-foreground border-t-2 border-foreground/50">
+    <footer className="bg-transparent text-foreground border-t border-foreground/20 mt-24">
       <AnimatedOnScroll className="container mx-auto px-4 md:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-1">
-            <h3 className="text-xl font-headline font-bold mb-4 uppercase">
-              PixelPulse 
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Cinematic visuals for brands and creators who dare to be different.
-            </p>
-          </div>
+         <div className="text-center mb-12">
+           <Link href="/" className="text-4xl font-headline font-bold">
+            PixelPulse
+          </Link>
+        </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 md:col-span-2 gap-8">
+        <Separator className="bg-foreground/20" />
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 text-center md:text-left">
+          <div>
+              <h4 className="font-bold uppercase tracking-widest mb-3 text-sm">Company</h4>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+                <li><Link href="/portfolio" className="hover:text-primary transition-colors">Portfolio</Link></li>
+                <li><Link href="/book" className="hover:text-primary transition-colors">Contact</Link></li>
+              </ul>
+            </div>
             <div>
-              <h4 className="font-semibold mb-3">Services</h4>
-              <ul className="space-y-2 text-sm">
-                {services.map((service) => (
+              <h4 className="font-bold uppercase tracking-widest mb-3 text-sm">Services</h4>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                {services.slice(0,3).map((service) => (
                   <li key={service.slug}>
-                    <Link href={`/services/${service.slug}`} className="text-muted-foreground hover:text-primary transition-colors">
+                    <Link href={`/services/${service.slug}`} className="hover:text-primary transition-colors">
                       {service.title}
                     </Link>
                   </li>
@@ -52,57 +41,28 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-3">Shop</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/shop?category=Presets" className="text-muted-foreground hover:text-primary transition-colors">Presets</Link></li>
-                <li><Link href="/shop?category=LUTs" className="text-muted-foreground hover:text-primary transition-colors">LUTs</Link></li>
-                <li><Link href="/shop?category=Templates" className="text-muted-foreground hover:text-primary transition-colors">Templates</Link></li>
+              <h4 className="font-bold uppercase tracking-widest mb-3 text-sm">Shop</h4>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li><Link href="/shop?category=Presets" className="hover:text-primary transition-colors">Presets</Link></li>
+                <li><Link href="/shop?category=LUTs" className="hover:text-primary transition-colors">LUTs</Link></li>
+                <li><Link href="/shop?category=Templates" className="hover:text-primary transition-colors">Templates</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-3">Company</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
-                <li><Link href="/portfolio" className="text-muted-foreground hover:text-primary transition-colors">Portfolio</Link></li>
-                <li><Link href="/book" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
+              <h4 className="font-bold uppercase tracking-widest mb-3 text-sm">Social</h4>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li><a href="#" className="hover:text-primary transition-colors">Instagram</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Twitter</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Youtube</a></li>
               </ul>
             </div>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-3">Join the Newsletter</h4>
-            <form className="flex gap-2" onSubmit={handleSubscribe}>
-              <Input
-                type="email"
-                placeholder="Your email"
-                className="flex-grow bg-transparent border-foreground/50"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <Button type="submit" variant="outline">Subscribe</Button>
-            </form>
-          </div>
         </div>
+        
+        <Separator className="bg-foreground/20" />
 
-        <Separator className="my-8 bg-foreground/50" />
-
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-          <div className="flex space-x-4">
-              <Link href="#" aria-label="Instagram">
-                <Instagram className="h-5 w-5 hover:text-primary transition-colors" />
-              </Link>
-              <Link href="#" aria-label="Twitter">
-                <Twitter className="h-5 w-5 hover:text-primary transition-colors" />
-              </Link>
-              <Link href="#" aria-label="Facebook">
-                <Facebook className="h-5 w-5 hover:text-primary transition-colors" />
-              </Link>
-              <Link href="#" aria-label="Youtube">
-                <Youtube className="h-5 w-5 hover:text-primary transition-colors" />
-              </Link>
-          </div>
-           <p className="mt-4 md:mt-0">&copy; {new Date().getFullYear()} PixelPulse Creative Studio.</p>
+        <div className="flex justify-between items-center text-xs uppercase tracking-widest text-foreground/60 pt-8">
+           <p>&copy; {new Date().getFullYear()} PixelPulse Creative Studio.</p>
+           <p>Timeless Visuals</p>
         </div>
       </AnimatedOnScroll>
     </footer>
