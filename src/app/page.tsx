@@ -21,6 +21,9 @@ export default function Home() {
       <AnimatedOnScroll className="w-full">
         <TestimonialsSection />
       </AnimatedOnScroll>
+      <div className="fixed bottom-0 left-0 w-full">
+        
+      </div>
     </div>
   );
 }
