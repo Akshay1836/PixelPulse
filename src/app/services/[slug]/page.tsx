@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import { services } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import AnimatedOnScroll from '@/components/shared/AnimatedOnScroll';
@@ -27,19 +26,10 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
   return (
     <div>
-      <section className="relative h-screen min-h-[500px] w-full">
-        <Image
-          src={service.heroImage}
-          alt={service.title}
-          fill
-          className="object-cover"
-          priority
-          data-ai-hint="service hero"
-        />
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-0 flex items-center justify-center">
+      <section className="py-20 md:py-32 text-center bg-transparent">
+        <div className="container mx-auto px-4 md:px-6">
           <AnimatedOnScroll>
-            <h1 className="font-headline text-5xl md:text-7xl font-bold text-white text-center">
+            <h1 className="font-headline text-5xl md:text-7xl font-bold text-gradient">
               {service.title}
             </h1>
           </AnimatedOnScroll>
