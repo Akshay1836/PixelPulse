@@ -3,7 +3,7 @@
     {
       "id": "hero-video-placeholder",
       "description": "A placeholder image for a cinematic video.",
-      "imageUrl": "/images/hero-video-placeholder.jpg",
+      "imageUrl": "/images/img1.jpg",
       "imageHint": "cinematic dark",
       "width": 1920,
       "height": 1080
@@ -11,7 +11,7 @@
     {
       "id": "about-section-image",
       "description": "An artistic image representing the studio's aesthetic.",
-      "imageUrl": "/images/about-section-image.jpg",
+      "imageUrl": "/images/img2.jpg",
       "imageHint": "artistic portrait",
       "width": 800,
       "height": 1000
@@ -19,7 +19,7 @@
     {
       "id": "service-photography",
       "description": "Image for photography service.",
-      "imageUrl": "/images/service-photography.jpg",
+      "imageUrl": "/images/img3.jpg",
       "imageHint": "camera lens",
       "width": 600,
       "height": 800
@@ -27,7 +27,7 @@
     {
       "id": "service-videography",
       "description": "Image for videography service.",
-      "imageUrl": "/images/service-videography.jpg",
+      "imageUrl": "/images/img4.jpg",
       "imageHint": "film reel",
       "width": 600,
       "height": 800
@@ -35,7 +35,7 @@
     {
       "id": "service-design",
       "description": "Image for design service.",
-      "imageUrl": "/images/service-design.jpg",
+      "imageUrl": "/images/img5.jpg",
       "imageHint": "abstract design",
       "width": 600,
       "height": 800
@@ -43,7 +43,7 @@
     {
       "id": "service-web-dev",
       "description": "Image for web dev service.",
-      "imageUrl": "/images/service-web-dev.jpg",
+      "imageUrl": "/images/img6.jpg",
       "imageHint": "code screen",
       "width": 600,
       "height": 800
@@ -51,7 +51,7 @@
     {
       "id": "product-preset-1",
       "description": "Product image for moody cinematic presets.",
-      "imageUrl": "/images/product-preset-1.jpg",
+      "imageUrl": "/images/img7.jpg",
       "imageHint": "moody landscape",
       "width": 800,
       "height": 1000
@@ -59,7 +59,7 @@
     {
       "id": "product-preset-2",
       "description": "Product image for true black presets.",
-      "imageUrl": "/images/product-preset-2.jpg",
+      "imageUrl": "/images/img8.jpg",
       "imageHint": "black white",
       "width": 800,
       "height": 1000
@@ -67,7 +67,7 @@
     {
       "id": "product-lut-1",
       "description": "Product image for cinematic LUTs.",
-      "imageUrl": "/images/product-lut-1.jpg",
+      "imageUrl": "/images/img9.jpg",
       "imageHint": "film look",
       "width": 800,
       "height": 1000
@@ -75,7 +75,7 @@
     {
       "id": "product-template-1",
       "description": "Product image for Canva templates.",
-      "imageUrl": "/images/product-template-1.jpg",
+      "imageUrl": "/images/img10.jpg",
       "imageHint": "social media",
       "width": 800,
       "height": 1000
@@ -83,7 +83,7 @@
     {
       "id": "gallery-1",
       "description": "Gallery image 1",
-      "imageUrl": "/images/gallery-1.jpg",
+      "imageUrl": "/images/img11.jpg",
       "imageHint": "portrait fashion",
       "width": 600,
       "height": 900
@@ -91,7 +91,7 @@
     {
       "id": "gallery-2",
       "description": "Gallery image 2",
-      "imageUrl": "/images/gallery-2.jpg",
+      "imageUrl": "/images/img12.jpg",
       "imageHint": "product shot",
       "width": 900,
       "height": 600
@@ -99,7 +99,7 @@
     {
       "id": "gallery-3",
       "description": "Gallery image 3",
-      "imageUrl": "/images/gallery-3.jpg",
+      "imageUrl": "/images/img13.jpg",
       "imageHint": "wedding couple",
       "width": 600,
       "height": 800
@@ -107,7 +107,7 @@
     {
       "id": "gallery-4",
       "description": "Gallery image 4",
-      "imageUrl": "/images/gallery-4.jpg",
+      "imageUrl": "/images/img14.jpg",
       "imageHint": "landscape drone",
       "width": 600,
       "height": 400
@@ -115,7 +115,7 @@
     {
       "id": "gallery-5",
       "description": "Gallery image 5",
-      "imageUrl": "/images/gallery-5.jpg",
+      "imageUrl": "/images/img15.jpg",
       "imageHint": "architecture detail",
       "width": 600,
       "height": 750
@@ -123,7 +123,7 @@
     {
       "id": "gallery-6",
       "description": "Gallery image 6",
-      "imageUrl": "/images/gallery-6.jpg",
+      "imageUrl": "/images/img16.jpg",
       "imageHint": "food photography",
       "width": 900,
       "height": 700
@@ -131,7 +131,7 @@
     {
       "id": "gallery-7",
       "description": "Gallery image 7",
-      "imageUrl": "/images/gallery-7.jpg",
+      "imageUrl": "/images/img17.jpg",
       "imageHint": "street style",
       "width": 600,
       "height": 900
@@ -139,7 +139,7 @@
     {
       "id": "gallery-8",
       "description": "Gallery image 8",
-      "imageUrl": "/images/gallery-8.jpg",
+      "imageUrl": "/images/img18.jpg",
       "imageHint": "automotive dark",
       "width": 800,
       "height": 600
@@ -147,7 +147,7 @@
     {
       "id": "before-image-1",
       "description": "Before image for preset",
-      "imageUrl": "/images/before-image-1.jpg",
+      "imageUrl": "/images/img19.jpg",
       "imageHint": "raw photo",
       "width": 1200,
       "height": 800
@@ -155,7 +155,7 @@
     {
       "id": "after-image-1",
       "description": "After image for preset",
-      "imageUrl": "/images/after-image-1.jpg",
+      "imageUrl": "/images/img20.jpg",
       "imageHint": "edited photo",
       "width": 1200,
       "height": 800
@@ -163,7 +163,7 @@
     {
       "id": "template-mockup-1",
       "description": "Template mockup 1",
-      "imageUrl": "/images/template-mockup-1.jpg",
+      "imageUrl": "/images/img21.jpg",
       "imageHint": "phone screen",
       "width": 900,
       "height": 1600
@@ -171,7 +171,7 @@
     {
       "id": "template-mockup-2",
       "description": "Template mockup 2",
-      "imageUrl": "/images/template-mockup-2.jpg",
+      "imageUrl": "/images/img22.jpg",
       "imageHint": "instagram post",
       "width": 900,
       "height": 1600
@@ -179,7 +179,7 @@
     {
       "id": "service-hero-photography",
       "description": "Hero image for photography page",
-      "imageUrl": "/images/service-hero-photography.jpg",
+      "imageUrl": "/images/img23.jpg",
       "imageHint": "photographer action",
       "width": 1600,
       "height": 900
@@ -187,7 +187,7 @@
     {
       "id": "service-hero-videography",
       "description": "Hero image for videography page",
-      "imageUrl": "/images/service-hero-videography.jpg",
+      "imageUrl": "/images/img24.jpg",
       "imageHint": "video camera",
       "width": 1600,
       "height": 900
@@ -195,7 +195,7 @@
     {
       "id": "service-hero-design",
       "description": "Hero image for design page",
-      "imageUrl": "/images/service-hero-design.jpg",
+      "imageUrl": "/images/img25.jpg",
       "imageHint": "design sketch",
       "width": 1600,
       "height": 900
@@ -203,7 +203,7 @@
     {
       "id": "service-hero-web-dev",
       "description": "Hero image for web dev page",
-      "imageUrl": "/images/service-hero-web-dev.jpg",
+      "imageUrl": "/images/img26.jpg",
       "imageHint": "laptop code",
       "width": 1600,
       "height": 900
@@ -211,7 +211,7 @@
     {
       "id": "service-hero-weddings",
       "description": "Hero image for weddings page",
-      "imageUrl": "/images/service-hero-weddings.jpg",
+      "imageUrl": "/images/img27.jpg",
       "imageHint": "wedding rings",
       "width": 1600,
       "height": 900
@@ -219,7 +219,7 @@
     {
       "id": "service-hero-marketing",
       "description": "Hero image for marketing page",
-      "imageUrl": "/images/service-hero-marketing.jpg",
+      "imageUrl": "/images/img28.jpg",
       "imageHint": "analytics chart",
       "width": 1600,
       "height": 900
@@ -227,7 +227,7 @@
     {
       "id": "testimonial-1",
       "description": "Avatar for testimonial 1",
-      "imageUrl": "/images/testimonial-1.jpg",
+      "imageUrl": "/images/img29.jpg",
       "imageHint": "person avatar",
       "width": 100,
       "height": 100
@@ -235,7 +235,7 @@
     {
       "id": "testimonial-2",
       "description": "Avatar for testimonial 2",
-      "imageUrl": "/images/testimonial-2.jpg",
+      "imageUrl": "/images/img30.jpg",
       "imageHint": "person avatar",
       "width": 100,
       "height": 100
@@ -243,7 +243,7 @@
     {
       "id": "testimonial-3",
       "description": "Avatar for testimonial 3",
-      "imageUrl": "/images/testimonial-3.jpg",
+      "imageUrl": "/images/img1.jpg",
       "imageHint": "person avatar",
       "width": 100,
       "height": 100
@@ -251,7 +251,7 @@
     {
       "id": "service-ecommerce",
       "description": "Image for e-commerce service.",
-      "imageUrl": "/images/service-ecommerce.jpg",
+      "imageUrl": "/images/img2.jpg",
       "imageHint": "shopping cart",
       "width": 600,
       "height": 800
@@ -259,7 +259,7 @@
     {
       "id": "service-hero-ecommerce",
       "description": "Hero image for e-commerce page.",
-      "imageUrl": "/images/service-hero-ecommerce.jpg",
+      "imageUrl": "/images/img3.jpg",
       "imageHint": "online store",
       "width": 1600,
       "height": 900
@@ -267,7 +267,7 @@
     {
       "id": "service-portfolios",
       "description": "Image for portfolio websites service.",
-      "imageUrl": "/images/service-portfolios.jpg",
+      "imageUrl": "/images/img4.jpg",
       "imageHint": "artist portfolio",
       "width": 600,
       "height": 800
@@ -275,7 +275,7 @@
     {
       "id": "service-hero-portfolios",
       "description": "Hero image for portfolio websites page.",
-      "imageUrl": "/images/service-hero-portfolios.jpg",
+      "imageUrl": "/images/img5.jpg",
       "imageHint": "website gallery",
       "width": 1600,
       "height": 900
@@ -283,7 +283,7 @@
     {
       "id": "home-cta-background",
       "description": "Background image for the home page call-to-action section.",
-      "imageUrl": "/images/home-cta-background.jpg",
+      "imageUrl": "/images/img6.jpg",
       "imageHint": "creative workspace",
       "width": 1600,
       "height": 600
@@ -291,7 +291,7 @@
     {
       "id": "hero-banner",
       "description": "Abstract dark ocean waves banner for hero section.",
-      "imageUrl": "/images/hero-banner.jpg",
+      "imageUrl": "/images/img7.jpg",
       "imageHint": "ocean waves",
       "width": 1200,
       "height": 400
