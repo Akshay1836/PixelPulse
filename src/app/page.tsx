@@ -25,10 +25,10 @@ export default function Home() {
         <FeaturedProducts />
       </AnimatedOnScroll>
       <AnimatedOnScroll className="w-full">
-        <TestimonialsSection />
-      </AnimatedOnScroll>
-       <AnimatedOnScroll className="w-full">
         <HomeCtaSection />
+      </AnimatedOnScroll>
+      <AnimatedOnScroll className="w-full">
+        <TestimonialsSection />
       </AnimatedOnScroll>
     </div>
   );

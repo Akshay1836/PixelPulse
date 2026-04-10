@@ -209,6 +209,12 @@
       "description": "Hero image for portfolio websites page.",
       "imageUrl": "https://picsum.photos/seed/508/1600/900",
       "imageHint": "website gallery"
+    },
+    {
+      "id": "home-cta-background",
+      "description": "Background image for the home page call-to-action section.",
+      "imageUrl": "https://picsum.photos/seed/701/1600/600",
+      "imageHint": "creative workspace"
     }
   ]
 }
