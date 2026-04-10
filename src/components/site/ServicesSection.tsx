@@ -14,9 +14,9 @@ export function ServicesSection() {
         <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
           From concept to completion, we offer a suite of services to bring your vision to life.
         </p>
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="mt-12 flex flex-wrap items-stretch justify-center gap-8">
           {services.map((service) => (
-            <Link href={`/services/${service.slug}`} key={service.slug} className="group block">
+            <Link href={`/services/${service.slug}`} key={service.slug} className="group block w-full max-w-sm sm:w-80">
               <Card className="h-full overflow-hidden transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-2xl group-hover:shadow-primary/10 transform group-hover:-translate-y-2">
                 <div className="relative h-80">
                   <Image
