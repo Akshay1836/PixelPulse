@@ -26,10 +26,10 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
   return (
     <div>
-      <section className="py-20 md:py-32 text-center bg-transparent">
+      <section className="w-full h-[60vh] min-h-[400px] flex items-center justify-center text-center bg-transparent">
         <div className="container mx-auto px-4 md:px-6">
           <AnimatedOnScroll>
-            <h1 className="font-headline text-5xl md:text-7xl font-bold text-gradient">
+            <h1 className="font-headline font-normal text-7xl md:text-9xl lg:text-[10rem] tracking-tight leading-none uppercase">
               {service.title}
             </h1>
           </AnimatedOnScroll>
