@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 
 export function ServicesSection() {
   return (
-    <section className="py-20 md:py-32">
+    <section className="py-20 md:py-24">
       <div className="container mx-auto px-4 md:px-6 text-center">
         <h2 className="font-headline text-4xl md:text-5xl font-bold text-gradient">
           Our Creative Services
@@ -17,7 +17,7 @@ export function ServicesSection() {
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
             <Link href={`/services/${service.slug}`} key={service.slug} className="group block">
-              <Card className="h-full overflow-hidden transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-2xl group-hover:shadow-primary/10 transform group-hover:-translate-y-2">
+              <Card className="h-full overflow-hidden transition-all duration-300 group-hover:border-primary/20 group-hover:shadow-lg group-hover:shadow-primary/10 transform group-hover:-translate-y-2">
                 <div className="relative h-80">
                   <Image
                     src={service.image}

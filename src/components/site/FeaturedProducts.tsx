@@ -8,7 +8,7 @@ export function FeaturedProducts() {
   const featured = digitalProducts.slice(0, 4);
 
   return (
-    <section className="bg-card py-20 md:py-32 w-full">
+    <section className="bg-card py-20 md:py-24 w-full">
       <div className="container mx-auto px-4 md:px-6 text-center">
         <h2 className="font-headline text-4xl md:text-5xl font-bold text-gradient">
           Digital Assets

@@ -14,7 +14,7 @@ import { Star } from 'lucide-react';
 
 export function TestimonialsSection() {
   return (
-    <section className="py-20 md:py-32">
+    <section className="py-20 md:py-24">
       <div className="container mx-auto px-4 md:px-6 text-center">
         <h2 className="font-headline text-4xl md:text-5xl font-bold text-gradient">
           Loved by Creatives & Brands

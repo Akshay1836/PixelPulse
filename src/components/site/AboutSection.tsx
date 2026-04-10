@@ -8,7 +8,7 @@ const aboutImage = PlaceHolderImages.find((p) => p.id === 'about-section-image')
 
 export function AboutSection() {
   return (
-    <section className="py-20 md:py-32">
+    <section className="py-20 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
