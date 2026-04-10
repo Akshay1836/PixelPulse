@@ -59,11 +59,12 @@ export default function CheckoutPage() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsProcessing(true);
+
     if (!stripe || !elements) {
       toast({
-          variant: "destructive",
-          title: "Stripe not loaded",
-          description: "Please wait a moment and try again.",
+        variant: 'destructive',
+        title: 'Stripe not loaded',
+        description: 'Please wait a moment and try again.',
       });
       setIsProcessing(false);
       return;
@@ -71,46 +72,77 @@ export default function CheckoutPage() {
 
     const cardElement = elements.getElement(CardElement);
     if (!cardElement) {
-        toast({
-          variant: "destructive",
-          title: "Card element not found",
-          description: "There was an issue with the checkout form.",
+      toast({
+        variant: 'destructive',
+        title: 'Card element not found',
+        description: 'There was an issue with the checkout form.',
       });
       setIsProcessing(false);
       return;
     }
-    
-    // In a real app, you would create a PaymentIntent on your server
-    // and use its client_secret to confirm the payment.
-    // e.g., const { client_secret } = await fetch('/api/create-payment-intent', ...).then(r => r.json());
-    // const { error: confirmError } = await stripe.confirmCardPayment(client_secret, ...);
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-        type: 'card',
-        card: cardElement,
-        billing_details: {
+    try {
+      // 1. Create a PaymentIntent on the server
+      const response = await fetch('/api/create-payment-intent', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ amount: cartTotal * 100 }), // amount in cents
+      });
+
+      const { clientSecret, error: serverError } = await response.json();
+
+      if (serverError || !response.ok) {
+        throw new Error(serverError || 'Failed to create payment intent.');
+      }
+
+      // 2. Confirm the payment on the client
+      const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: cardElement,
+          billing_details: {
             name: values.name,
             email: values.email,
-        }
-    });
+          },
+        },
+      });
 
-    if (error) {
+      if (error) {
+        // Show error to your customer (e.g., insufficient funds)
         toast({
-            variant: "destructive",
-            title: "Payment failed",
-            description: error.message || "An unknown error occurred.",
+          variant: 'destructive',
+          title: 'Payment failed',
+          description: error.message || 'An unknown error occurred.',
         });
         setIsProcessing(false);
-    } else {
-        console.log('[PaymentMethod]', paymentMethod);
-        // SIMULATION: Here you would send paymentMethod.id to your server to complete the purchase.
-        toast({
-            title: "Payment Successful (Simulation)",
-            description: "Your order has been placed.",
-        });
-        clearCart();
-        router.push('/checkout/success');
-        // No need to setIsProcessing(false) as we are navigating away.
+      } else {
+        // Show a success message to your customer
+        if (paymentIntent.status === 'succeeded') {
+          toast({
+            title: 'Payment Successful!',
+            description: 'Your order has been placed.',
+          });
+          clearCart();
+          router.push('/checkout/success');
+          // No need to setIsProcessing(false) as we are navigating away.
+        } else {
+            // Handle other payment statuses if needed
+            toast({
+                variant: 'destructive',
+                title: 'Payment processing',
+                description: `Payment status: ${paymentIntent.status}. Please contact support.`,
+            });
+            setIsProcessing(false);
+        }
+      }
+    } catch (e: any) {
+      toast({
+        variant: 'destructive',
+        title: 'An error occurred',
+        description: e.message || 'Could not process payment. Please try again.',
+      });
+      setIsProcessing(false);
     }
   };
 

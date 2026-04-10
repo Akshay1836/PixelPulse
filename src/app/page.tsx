@@ -12,11 +12,12 @@ export default function Home() {
     <div className="flex flex-col items-center overflow-hidden">
       <Hero />
       <AnimatedOnScroll className="w-full">
-        <ServicesSection />
-      </AnimatedOnScroll>
-      <AnimatedOnScroll className="w-full">
         <AboutSection />
       </AnimatedOnScroll>
+      <AnimatedOnScroll className="w-full">
+        <ServicesSection />
+      </AnimatedOnScroll>
+    
       <AnimatedOnScroll className="w-full">
         <WhyChooseUsSection />
       </AnimatedOnScroll>
