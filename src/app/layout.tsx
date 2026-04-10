@@ -33,9 +33,10 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          'font-body antialiased bg-background text-foreground min-h-screen flex flex-col'
+          'font-body antialiased bg-background text-foreground min-h-screen flex flex-col relative'
         )}
       >
+        <div className="absolute inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,hsl(var(--primary)/.1),rgba(255,255,255,0))] animate-background-pan" />
         <CartProvider>
           <SiteLayout>{children}</SiteLayout>
           <Toaster />

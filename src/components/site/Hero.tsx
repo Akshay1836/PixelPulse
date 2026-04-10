@@ -6,24 +6,7 @@ import AnimatedOnScroll from '../shared/AnimatedOnScroll';
 export function Hero() {
   return (
     <section className="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center text-center overflow-hidden">
-      <div className="absolute inset-0 bg-black z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute z-0 w-full h-full object-cover"
-          poster="https://picsum.photos/seed/hero-video/1920/1080"
-          data-ai-hint="cinematic background"
-        >
-          {/* 
-            To add a video background, download a video and place it in the /public folder. 
-            Then, uncomment the following line and replace the src with your video file's path.
-            <source src="/hero-video.mp4" type="video/mp4" /> 
-          */}
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <AnimatedOnScroll>
           <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter">
