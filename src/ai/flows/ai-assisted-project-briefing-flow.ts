@@ -82,6 +82,9 @@ export type AiAssistedProjectBriefingOutput = z.infer<
 export async function aiAssistedProjectBriefing(
   input: AiAssistedProjectBriefingInput
 ): Promise<AiAssistedProjectBriefingOutput> {
+  if (!process.env.GEMINI_API_KEY) {
+    throw new Error('The AI assistant is not configured. Please contact the site administrator.');
+  }
   return aiAssistedProjectBriefingFlow(input);
 }
 

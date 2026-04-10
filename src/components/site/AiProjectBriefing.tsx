@@ -60,8 +60,8 @@ export default function AiProjectBriefing({ preselectedService }: { preselectedS
     try {
       const result = await aiAssistedProjectBriefing(values);
       setBrief(result);
-    } catch (e) {
-      setError('An error occurred while generating the brief. Please try again.');
+    } catch (e: any) {
+      setError(e.message || 'An error occurred while generating the brief. Please try again.');
       console.error(e);
     }
     setIsLoading(false);
