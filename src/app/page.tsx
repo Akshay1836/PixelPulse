@@ -6,7 +6,7 @@ import { FeaturedProducts } from '@/components/site/FeaturedProducts';
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center overflow-x-hidden">
+    <div className="flex flex-col items-center">
       <Hero />
       <AnimatedOnScroll className="w-full">
         <AboutSection />
