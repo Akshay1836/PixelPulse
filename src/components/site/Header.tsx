@@ -37,102 +37,132 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <header
-      className={cn(
-        'sticky top-0 z-50 w-full transition-all duration-300',
-        isScrolled
-          ? 'bg-black/80 backdrop-blur-lg border-b border-border'
-          : 'bg-transparent'
-      )}
-    >
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="text-2xl font-headline font-bold text-gradient">
-          PixelPulse
-        </Link>
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMenuOpen]);
 
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 hover:text-primary transition-colors outline-none">
-              Services
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              {services.map((service) => (
-                <DropdownMenuItem key={service.slug} asChild>
-                  <Link href={`/services/${service.slug}`} className="flex items-center gap-2">
-                    <service.icon className="h-4 w-4" />
-                    {service.title}
-                  </Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="hover:text-primary transition-colors"
+  return (
+    <>
+      <header
+        className={cn(
+          'sticky top-0 z-50 w-full transition-all duration-300',
+          isScrolled
+            ? 'bg-black/80 backdrop-blur-lg border-b border-border'
+            : 'bg-transparent'
+        )}
+      >
+        <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+          <Link href="/" className="text-2xl font-headline font-bold text-gradient">
+            PixelPulse
+          </Link>
+
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 hover:text-primary transition-colors outline-none">
+                Services
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {services.map((service) => (
+                  <DropdownMenuItem key={service.slug} asChild>
+                    <Link href={`/services/${service.slug}`} className="flex items-center gap-2">
+                      <service.icon className="h-4 w-4" />
+                      {service.title}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="hover:text-primary transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-4">
+            <Button variant="ghost" size="icon" className="hidden md:inline-flex relative" onClick={() => setIsCartOpen(true)}>
+              {cartCount > 0 && (
+                  <Badge className="absolute -top-2 -right-2 h-5 w-5 justify-center p-0">{cartCount}</Badge>
+              )}
+              <ShoppingCart className="h-5 w-5" />
+              <span className="sr-only">Cart</span>
+            </Button>
+            <Button asChild variant="outline" className="hidden md:inline-flex border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground">
+              <Link href="/book">Book a Consultation</Link>
+            </Button>
+
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(true)}
             >
+              <Menu />
+              <span className="sr-only">Toggle menu</span>
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Menu */}
+      <div
+        className={cn(
+          "md:hidden fixed inset-0 bg-background z-[100] p-6 flex flex-col transition-transform duration-300 ease-in-out",
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        )}
+      >
+        <div className="flex items-center justify-between">
+            <Link href="/" className="text-2xl font-headline font-bold text-gradient" onClick={() => setIsMenuOpen(false)}>
+              PixelPulse
+            </Link>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <X />
+              <span className="sr-only">Close menu</span>
+            </Button>
+        </div>
+        <nav className="flex flex-col gap-6 mt-12 flex-grow">
+          {services.map((service) => (
+            <Link key={service.slug} href={`/services/${service.slug}`} className="flex items-center gap-3 text-xl font-semibold" onClick={() => setIsMenuOpen(false)}>
+               <service.icon className="h-6 w-6 text-primary" />
+              {service.title}
+            </Link>
+          ))}
+           <hr className="border-border my-2" />
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>
               {link.label}
             </Link>
           ))}
         </nav>
-
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" className="hidden md:inline-flex relative" onClick={() => setIsCartOpen(true)}>
-            {cartCount > 0 && (
-                <Badge className="absolute -top-2 -right-2 h-5 w-5 justify-center p-0">{cartCount}</Badge>
-            )}
-            <ShoppingCart className="h-5 w-5" />
-            <span className="sr-only">Cart</span>
-          </Button>
-          <Button asChild variant="outline" className="hidden md:inline-flex border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground">
-            <Link href="/book">Book a Consultation</Link>
-          </Button>
-
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-            <span className="sr-only">Toggle menu</span>
-          </Button>
+        <div className="mt-auto flex items-center justify-between border-t border-border pt-6">
+            <Button asChild variant="default" size="lg" onClick={() => setIsMenuOpen(false)}>
+              <Link href="/book">Book a Consultation</Link>
+            </Button>
+            <Button variant="ghost" size="icon" className="relative h-10 w-10" onClick={() => { setIsMenuOpen(false); setIsCartOpen(true); }}>
+                {cartCount > 0 && (
+                    <Badge className="absolute -top-1 -right-1 h-5 w-5 justify-center p-0">{cartCount}</Badge>
+                )}
+                <ShoppingCart className="h-6 w-6" />
+                <span className="sr-only">Cart</span>
+            </Button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-card shadow-lg p-4">
-          <nav className="flex flex-col gap-4">
-            {services.map((service) => (
-              <Link key={service.slug} href={`/services/${service.slug}`} className="flex items-center gap-2 text-lg" onClick={() => setIsMenuOpen(false)}>
-                 <service.icon className="h-5 w-5" />
-                {service.title}
-              </Link>
-            ))}
-             <hr className="border-border" />
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-lg" onClick={() => setIsMenuOpen(false)}>
-                {link.label}
-              </Link>
-            ))}
-            <div className="flex items-center justify-between mt-4">
-                <Button asChild variant="default" size="lg" onClick={() => setIsMenuOpen(false)}>
-                  <Link href="/book">Book a Consultation</Link>
-                </Button>
-                <Button variant="ghost" size="icon" className="relative" onClick={() => { setIsMenuOpen(false); setIsCartOpen(true); }}>
-                    {cartCount > 0 && (
-                        <Badge className="absolute -top-2 -right-2 h-5 w-5 justify-center p-0">{cartCount}</Badge>
-                    )}
-                    <ShoppingCart className="h-5 w-5" />
-                    <span className="sr-only">Cart</span>
-                </Button>
-            </div>
-          </nav>
-        </div>
-      )}
-    </header>
+    </>
   );
 }
