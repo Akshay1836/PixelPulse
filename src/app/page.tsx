@@ -5,6 +5,7 @@ import { FeaturedProducts } from '@/components/site/FeaturedProducts';
 import { WhyChooseUsSection } from '@/components/site/WhyChooseUsSection';
 import { TestimonialsSection } from '@/components/site/TestimonialsSection';
 import { HomeCtaSection } from '@/components/site/HomeCtaSection';
+import { AboutSection } from '@/components/site/AboutSection';
 
 export default function Home() {
   return (
@@ -12,6 +13,9 @@ export default function Home() {
       <Hero />
       <AnimatedOnScroll className="w-full">
         <ServicesSection />
+      </AnimatedOnScroll>
+      <AnimatedOnScroll className="w-full">
+        <AboutSection />
       </AnimatedOnScroll>
       <AnimatedOnScroll className="w-full">
         <WhyChooseUsSection />
