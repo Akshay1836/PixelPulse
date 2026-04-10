@@ -1,3 +1,172 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-video-placeholder",
+      "description": "A placeholder image for a cinematic video.",
+      "imageUrl": "https://picsum.photos/seed/101/1920/1080",
+      "imageHint": "cinematic dark"
+    },
+    {
+      "id": "about-section-image",
+      "description": "An artistic image representing the studio's aesthetic.",
+      "imageUrl": "https://picsum.photos/seed/102/800/1000",
+      "imageHint": "artistic portrait"
+    },
+    {
+      "id": "service-photography",
+      "description": "Image for photography service.",
+      "imageUrl": "https://picsum.photos/seed/103/600/800",
+      "imageHint": "camera lens"
+    },
+    {
+      "id": "service-videography",
+      "description": "Image for videography service.",
+      "imageUrl": "https://picsum.photos/seed/104/600/800",
+      "imageHint": "film reel"
+    },
+    {
+      "id": "service-design",
+      "description": "Image for design service.",
+      "imageUrl": "https://picsum.photos/seed/105/600/800",
+      "imageHint": "abstract design"
+    },
+    {
+      "id": "service-web-dev",
+      "description": "Image for web dev service.",
+      "imageUrl": "https://picsum.photos/seed/106/600/800",
+      "imageHint": "code screen"
+    },
+    {
+      "id": "product-preset-1",
+      "description": "Product image for moody cinematic presets.",
+      "imageUrl": "https://picsum.photos/seed/107/800/1000",
+      "imageHint": "moody landscape"
+    },
+    {
+      "id": "product-preset-2",
+      "description": "Product image for true black presets.",
+      "imageUrl": "https://picsum.photos/seed/108/800/1000",
+      "imageHint": "black white"
+    },
+    {
+      "id": "product-lut-1",
+      "description": "Product image for cinematic LUTs.",
+      "imageUrl": "https://picsum.photos/seed/109/800/1000",
+      "imageHint": "film look"
+    },
+    {
+      "id": "product-template-1",
+      "description": "Product image for Canva templates.",
+      "imageUrl": "https://picsum.photos/seed/110/800/1000",
+      "imageHint": "social media"
+    },
+    {
+      "id": "gallery-1",
+      "description": "Gallery image 1",
+      "imageUrl": "https://picsum.photos/seed/201/600/900",
+      "imageHint": "portrait fashion"
+    },
+    {
+      "id": "gallery-2",
+      "description": "Gallery image 2",
+      "imageUrl": "https://picsum.photos/seed/202/900/600",
+      "imageHint": "product shot"
+    },
+    {
+      "id": "gallery-3",
+      "description": "Gallery image 3",
+      "imageUrl": "https://picsum.photos/seed/203/600/800",
+      "imageHint": "wedding couple"
+    },
+    {
+      "id": "gallery-4",
+      "description": "Gallery image 4",
+      "imageUrl": "https://picsum.photos/seed/204/600/400",
+      "imageHint": "landscape drone"
+    },
+    {
+      "id": "gallery-5",
+      "description": "Gallery image 5",
+      "imageUrl": "https://picsum.photos/seed/205/600/750",
+      "imageHint": "architecture detail"
+    },
+    {
+      "id": "gallery-6",
+      "description": "Gallery image 6",
+      "imageUrl": "https://picsum.photos/seed/206/900/700",
+      "imageHint": "food photography"
+    },
+    {
+      "id": "gallery-7",
+      "description": "Gallery image 7",
+      "imageUrl": "https://picsum.photos/seed/207/600/900",
+      "imageHint": "street style"
+    },
+    {
+      "id": "gallery-8",
+      "description": "Gallery image 8",
+      "imageUrl": "https://picsum.photos/seed/208/800/600",
+      "imageHint": "automotive dark"
+    },
+    {
+      "id": "before-image-1",
+      "description": "Before image for preset",
+      "imageUrl": "https://picsum.photos/seed/301/1200/800",
+      "imageHint": "raw photo"
+    },
+    {
+      "id": "after-image-1",
+      "description": "After image for preset",
+      "imageUrl": "https://picsum.photos/seed/302/1200/800",
+      "imageHint": "edited photo"
+    },
+    {
+      "id": "template-mockup-1",
+      "description": "Template mockup 1",
+      "imageUrl": "https://picsum.photos/seed/401/900/1600",
+      "imageHint": "phone screen"
+    },
+    {
+      "id": "template-mockup-2",
+      "description": "Template mockup 2",
+      "imageUrl": "https://picsum.photos/seed/402/900/1600",
+      "imageHint": "instagram post"
+    },
+    {
+      "id": "service-hero-photography",
+      "description": "Hero image for photography page",
+      "imageUrl": "https://picsum.photos/seed/501/1600/900",
+      "imageHint": "photographer action"
+    },
+    {
+      "id": "service-hero-videography",
+      "description": "Hero image for videography page",
+      "imageUrl": "https://picsum.photos/seed/502/1600/900",
+      "imageHint": "video camera"
+    },
+    {
+      "id": "service-hero-design",
+      "description": "Hero image for design page",
+      "imageUrl": "https://picsum.photos/seed/503/1600/900",
+      "imageHint": "design sketch"
+    },
+    {
+      "id": "service-hero-web-dev",
+      "description": "Hero image for web dev page",
+      "imageUrl": "https://picsum.photos/seed/504/1600/900",
+      "imageHint": "laptop code"
+    },
+    {
+      "id": "service-hero-weddings",
+      "description": "Hero image for weddings page",
+      "imageUrl": "https://picsum.photos/seed/505/1600/900",
+      "imageHint": "wedding rings"
+    },
+    {
+      "id": "service-hero-marketing",
+      "description": "Hero image for marketing page",
+      "imageUrl": "https://picsum.photos/seed/506/1600/900",
+      "imageHint": "analytics chart"
+    }
+  ]
 }
