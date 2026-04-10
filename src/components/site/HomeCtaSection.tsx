@@ -18,7 +18,7 @@ export function HomeCtaSection() {
                     data-ai-hint={ctaImage.imageHint}
                 />
             )}
-            <div className="absolute inset-0 bg-black/70" />
+            <div className="absolute inset-0 bg-black/50" />
             <div className="relative z-10 container mx-auto px-4 md:px-6 text-center text-white">
                 <h2 className="font-headline text-4xl md:text-6xl font-bold">
                     Ready to Start Your Project?

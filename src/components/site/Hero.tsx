@@ -5,32 +5,17 @@ import AnimatedOnScroll from '../shared/AnimatedOnScroll';
 
 export function Hero() {
   return (
-    <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center text-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+    <section className="w-full py-20 md:py-28 flex items-center justify-center text-center bg-background">
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <AnimatedOnScroll>
-          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter">
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 via-neutral-200 to-neutral-500">
-              Where Vision Meets Velocity
-            </span>
+          <h1 className="font-headline font-black text-7xl md:text-9xl lg:text-[10rem] tracking-tighter leading-none">
+            PixelPulse
           </h1>
         </AnimatedOnScroll>
         <AnimatedOnScroll delay={200}>
-          <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-            PixelPulse is a creative studio and digital marketplace for brands and creators who seek the exceptional.
+          <p className="mt-4 max-w-2xl mx-auto text-xl md:text-2xl text-muted-foreground tracking-wide">
+            A CREATIVE STUDIO
           </p>
-        </AnimatedOnScroll>
-        <AnimatedOnScroll delay={400} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-            <Link href="/services/photography">
-              Explore Services <MoveRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-          <Button asChild size="lg" variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground">
-            <Link href="/shop">
-              Shop Digital Assets <Sparkles className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
         </AnimatedOnScroll>
       </div>
     </section>

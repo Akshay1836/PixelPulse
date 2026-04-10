@@ -27,7 +27,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
   return (
     <div>
-      <section className="relative h-[80vh] min-h-[500px] w-full">
+      <section className="relative h-screen min-h-[500px] w-full">
         <Image
           src={service.heroImage}
           alt={service.title}
@@ -36,7 +36,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           priority
           data-ai-hint="service hero"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 flex items-center justify-center">
           <AnimatedOnScroll>
             <h1 className="font-headline text-5xl md:text-7xl font-bold text-white text-center">
