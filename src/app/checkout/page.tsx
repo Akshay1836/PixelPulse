@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useCart } from '@/context/CartContext';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -12,50 +12,117 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
-import { CreditCard } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import AnimatedOnScroll from '@/components/shared/AnimatedOnScroll';
-import Link from 'next/link';
+import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
+import { useToast } from '@/hooks/use-toast';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email.' }),
-  // Basic card details for UI purposes. Not for actual processing.
-  card_number: z.string().min(16, { message: 'Card number must be 16 digits.' }).max(16, {message: 'Card number must be 16 digits.'}).optional(),
-  card_expiry: z.string().regex(/^(0[1-9]|1[0-2])\/\d{2}$/, { message: 'Invalid expiry date (MM/YY).' }).optional(),
-  card_cvc: z.string().min(3, { message: 'CVC must be 3 digits.' }).max(4, {message: 'CVC must be 3-4 digits.'}).optional(),
 });
+
+const cardElementOptions = {
+    style: {
+      base: {
+        color: '#fafafa',
+        fontFamily: '"PT Sans", sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+          color: '#a3a3a3',
+        },
+      },
+      invalid: {
+        color: '#BF3A26',
+        iconColor: '#BF3A26',
+      },
+    },
+};
+
 
 export default function CheckoutPage() {
   const { cartItems, cartTotal, clearCart } = useCart();
   const router = useRouter();
+  const stripe = useStripe();
+  const elements = useElements();
+  const { toast } = useToast();
+  const [isProcessing, setIsProcessing] = useState(false);
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
       email: '',
-      card_number: '',
-      card_expiry: '',
-      card_cvc: '',
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    // In a real app, you would process the payment here.
-    console.log('Order placed:', { values, cartItems, cartTotal });
-    clearCart();
-    router.push('/checkout/success');
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsProcessing(true);
+    if (!stripe || !elements) {
+      toast({
+          variant: "destructive",
+          title: "Stripe not loaded",
+          description: "Please wait a moment and try again.",
+      });
+      setIsProcessing(false);
+      return;
+    }
+
+    const cardElement = elements.getElement(CardElement);
+    if (!cardElement) {
+        toast({
+          variant: "destructive",
+          title: "Card element not found",
+          description: "There was an issue with the checkout form.",
+      });
+      setIsProcessing(false);
+      return;
+    }
+    
+    // In a real app, you would create a PaymentIntent on your server
+    // and use its client_secret to confirm the payment.
+    // e.g., const { client_secret } = await fetch('/api/create-payment-intent', ...).then(r => r.json());
+    // const { error: confirmError } = await stripe.confirmCardPayment(client_secret, ...);
+
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+        type: 'card',
+        card: cardElement,
+        billing_details: {
+            name: values.name,
+            email: values.email,
+        }
+    });
+
+    if (error) {
+        toast({
+            variant: "destructive",
+            title: "Payment failed",
+            description: error.message || "An unknown error occurred.",
+        });
+        setIsProcessing(false);
+    } else {
+        console.log('[PaymentMethod]', paymentMethod);
+        // SIMULATION: Here you would send paymentMethod.id to your server to complete the purchase.
+        toast({
+            title: "Payment Successful (Simulation)",
+            description: "Your order has been placed.",
+        });
+        clearCart();
+        router.push('/checkout/success');
+        // No need to setIsProcessing(false) as we are navigating away.
+    }
   };
 
-  // This check should happen after hooks, and should be inside the component body
   useEffect(() => {
-    if (cartItems.length === 0) {
+    // Prevent redirecting if the cart is empty because we are processing a payment
+    if (cartItems.length === 0 && !isProcessing) {
       router.replace('/shop');
     }
-  }, [cartItems, router]);
+  }, [cartItems, router, isProcessing]);
 
 
-  if (cartItems.length === 0) {
+  if (cartItems.length === 0 && !isProcessing) {
     return (
         <div className="container mx-auto px-4 md:px-6 py-20 text-center">
             <h1 className="font-headline text-4xl font-bold">Your Cart is Empty</h1>
@@ -153,53 +220,19 @@ export default function CheckoutPage() {
                                     </FormItem>
                                 )}
                             />
-                            <FormField
-                                control={form.control}
-                                name="card_number"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Card Number</FormLabel>
-                                        <FormControl>
-                                            <div className="relative">
-                                                <CreditCard className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                                <Input placeholder="•••• •••• •••• ••••" {...field} className="pl-10" />
-                                            </div>
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                            <div className="flex gap-4">
-                                <FormField
-                                    control={form.control}
-                                    name="card_expiry"
-                                    render={({ field }) => (
-                                        <FormItem className="flex-1">
-                                            <FormLabel>Expiry</FormLabel>
-                                            <FormControl>
-                                                <Input placeholder="MM/YY" {...field} />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="card_cvc"
-                                    render={({ field }) => (
-                                        <FormItem className="flex-1">
-                                            <FormLabel>CVC</FormLabel>
-                                            <FormControl>
-                                                <Input placeholder="•••" {...field} />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                            </div>
+                            <FormItem>
+                                <FormLabel>Card Details</FormLabel>
+                                <FormControl>
+                                    <div className="p-3 rounded-md border border-input bg-transparent">
+                                        <CardElement options={cardElementOptions} />
+                                    </div>
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
 
-                            <Button type="submit" size="lg" className="w-full mt-8" disabled={form.formState.isSubmitting}>
-                                {form.formState.isSubmitting ? 'Processing...' : `Pay $${cartTotal.toFixed(2)}`}
+                            <Button type="submit" size="lg" className="w-full mt-8" disabled={!stripe || isProcessing}>
+                                {isProcessing && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                                {isProcessing ? 'Processing...' : `Pay $${cartTotal.toFixed(2)}`}
                             </Button>
                         </form>
                     </Form>
