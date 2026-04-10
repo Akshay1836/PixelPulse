@@ -8,6 +8,7 @@ import AnimatedOnScroll from '../shared/AnimatedOnScroll';
 import { useToast } from '@/hooks/use-toast';
 import React, { useState } from 'react';
 import { services } from '@/lib/data';
+import { Separator } from '../ui/separator';
 
 export default function Footer() {
   const { toast } = useToast();
@@ -25,30 +26,16 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-card text-card-foreground border-t border-border">
+    <footer className="bg-transparent text-foreground border-t-2 border-foreground/50">
       <AnimatedOnScroll className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            <h3 className="text-xl font-headline font-bold text-gradient mb-4">
-              PixelPulse Creative Studio
+            <h3 className="text-xl font-headline font-bold mb-4 uppercase">
+              PixelPulse 
             </h3>
             <p className="text-sm text-muted-foreground">
               Cinematic visuals for brands and creators who dare to be different.
             </p>
-            <div className="flex space-x-4 mt-4">
-              <Link href="#" aria-label="Instagram">
-                <Instagram className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" />
-              </Link>
-              <Link href="#" aria-label="Twitter">
-                <Twitter className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" />
-              </Link>
-              <Link href="#" aria-label="Facebook">
-                <Facebook className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" />
-              </Link>
-              <Link href="#" aria-label="Youtube">
-                <Youtube className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" />
-              </Link>
-            </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 md:col-span-2 gap-8">
@@ -84,25 +71,38 @@ export default function Footer() {
 
           <div>
             <h4 className="font-semibold mb-3">Join the Newsletter</h4>
-            <p className="text-sm text-muted-foreground mb-4">
-              Get exclusive deals, tips, and updates.
-            </p>
             <form className="flex gap-2" onSubmit={handleSubscribe}>
               <Input
                 type="email"
                 placeholder="Your email"
-                className="flex-grow"
+                className="flex-grow bg-transparent border-foreground/50"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-              <Button type="submit" variant="default">Subscribe</Button>
+              <Button type="submit" variant="outline">Subscribe</Button>
             </form>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-border pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} PixelPulse Creative Studio. All Rights Reserved.</p>
+        <Separator className="my-8 bg-foreground/50" />
+
+        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
+          <div className="flex space-x-4">
+              <Link href="#" aria-label="Instagram">
+                <Instagram className="h-5 w-5 hover:text-primary transition-colors" />
+              </Link>
+              <Link href="#" aria-label="Twitter">
+                <Twitter className="h-5 w-5 hover:text-primary transition-colors" />
+              </Link>
+              <Link href="#" aria-label="Facebook">
+                <Facebook className="h-5 w-5 hover:text-primary transition-colors" />
+              </Link>
+              <Link href="#" aria-label="Youtube">
+                <Youtube className="h-5 w-5 hover:text-primary transition-colors" />
+              </Link>
+          </div>
+           <p className="mt-4 md:mt-0">&copy; {new Date().getFullYear()} PixelPulse Creative Studio.</p>
         </div>
       </AnimatedOnScroll>
     </footer>
