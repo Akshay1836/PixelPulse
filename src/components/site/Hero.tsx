@@ -9,7 +9,7 @@ export function Hero() {
     <section className="w-full h-screen flex flex-col items-center justify-center text-center bg-background text-foreground py-12">
       <div className="flex items-center justify-center">
         <AnimatedOnScroll>
-          <h1 className="font-headline font-bold text-8xl md:text-9xl lg:text-[12rem] leading-none">
+          <h1 className="font-headline font-bold text-7xl md:text-9xl lg:text-[12rem] leading-none">
             PixelPulse
           </h1>
         </AnimatedOnScroll>
