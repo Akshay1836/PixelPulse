@@ -14,8 +14,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ServicePage({ params: { slug } }: { params: { slug: string } }) {
-  const service = services.find((s) => s.slug === slug);
+export default function ServicePage({ params }: { params: { slug: string } }) {
+  const service = services.find((s) => s.slug === params.slug);
 
   if (!service) {
     notFound();
