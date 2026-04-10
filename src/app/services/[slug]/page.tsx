@@ -29,7 +29,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <section className="w-full h-[60vh] min-h-[400px] flex items-center justify-center text-center bg-transparent">
         <div className="container mx-auto px-4 md:px-6">
           <AnimatedOnScroll>
-            <h1 className="font-headline font-normal text-7xl md:text-9xl lg:text-[10rem] tracking-tight leading-none uppercase">
+            <h1 className="font-headline font-normal text-7xl md:text-9xl lg:text-[10rem] leading-none uppercase">
               {service.title}
             </h1>
           </AnimatedOnScroll>

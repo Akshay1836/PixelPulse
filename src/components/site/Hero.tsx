@@ -8,7 +8,7 @@ export function Hero() {
     <section className="w-full h-screen min-h-[600px] flex items-center justify-center text-center bg-transparent">
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <AnimatedOnScroll>
-          <h1 className="font-headline font-normal text-8xl md:text-[12rem] lg:text-[16rem] tracking-tight leading-none uppercase">
+          <h1 className="font-headline font-normal text-8xl md:text-[12rem] lg:text-[16rem] leading-none uppercase">
             PixelPulse
           </h1>
         </AnimatedOnScroll>
