@@ -13,6 +13,7 @@ interface CartContextType {
   addToCart: (product: DigitalProduct) => void;
   removeFromCart: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
+  clearCart: () => void;
   cartCount: number;
   cartTotal: number;
   isCartOpen: boolean;
@@ -28,9 +29,17 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   // Load cart from local storage on initial render
   useEffect(() => {
-    const storedCart = localStorage.getItem('cart');
-    if (storedCart) {
-      setCartItems(JSON.parse(storedCart));
+    try {
+      const storedCart = localStorage.getItem('cart');
+      if (storedCart) {
+        const parsedCart = JSON.parse(storedCart);
+        if (Array.isArray(parsedCart)) {
+          setCartItems(parsedCart);
+        }
+      }
+    } catch (error) {
+        console.error("Could not parse cart from localStorage", error);
+        setCartItems([]);
     }
   }, []);
 
@@ -75,6 +84,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       )
     );
   };
+  
+  const clearCart = () => {
+    setCartItems([]);
+  };
 
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   const cartTotal = cartItems.reduce(
@@ -89,6 +102,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         addToCart,
         removeFromCart,
         updateQuantity,
+        clearCart,
         cartCount,
         cartTotal,
         isCartOpen,

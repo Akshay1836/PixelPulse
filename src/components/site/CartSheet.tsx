@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { Trash2, Plus, Minus } from 'lucide-react';
 import { ScrollArea } from '../ui/scroll-area';
+import Link from 'next/link';
 
 export default function CartSheet() {
   const { isCartOpen, setIsCartOpen, cartItems, cartTotal, removeFromCart, updateQuantity } = useCart();
@@ -79,8 +80,8 @@ export default function CartSheet() {
                   <span>Subtotal</span>
                   <span>${cartTotal.toFixed(2)}</span>
                 </div>
-                <Button className="w-full" size="lg">
-                  Checkout
+                <Button asChild className="w-full" size="lg">
+                  <Link href="/checkout" onClick={() => setIsCartOpen(false)}>Checkout</Link>
                 </Button>
               </div>
             </SheetFooter>
@@ -91,6 +92,9 @@ export default function CartSheet() {
             <p className="text-muted-foreground mt-2">
               Add some products to get started.
             </p>
+            <Button asChild variant="outline" className="mt-4" onClick={() => setIsCartOpen(false)}>
+              <Link href="/shop">Go to Shop</Link>
+            </Button>
           </div>
         )}
       </SheetContent>

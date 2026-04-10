@@ -1,10 +1,28 @@
+'use client';
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 import AnimatedOnScroll from '../shared/AnimatedOnScroll';
+import { useToast } from '@/hooks/use-toast';
+import React, { useState } from 'react';
 
 export default function Footer() {
+  const { toast } = useToast();
+  const [email, setEmail] = useState('');
+
+  const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (email) {
+      toast({
+        title: 'Subscribed!',
+        description: "You've been added to our newsletter.",
+      });
+      setEmail('');
+    }
+  };
+
   return (
     <footer className="bg-card text-card-foreground border-t border-border">
       <AnimatedOnScroll className="container mx-auto px-4 md:px-6 py-12">
@@ -65,8 +83,15 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground mb-4">
               Get exclusive deals, tips, and updates.
             </p>
-            <form className="flex gap-2">
-              <Input type="email" placeholder="Your email" className="flex-grow" />
+            <form className="flex gap-2" onSubmit={handleSubscribe}>
+              <Input
+                type="email"
+                placeholder="Your email"
+                className="flex-grow"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
               <Button type="submit" variant="default">Subscribe</Button>
             </form>
           </div>
