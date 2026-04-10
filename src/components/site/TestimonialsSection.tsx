@@ -41,13 +41,13 @@ export function TestimonialsSection() {
                         </div>
                         <p className="text-muted-foreground">"{testimonial.quote}"</p>
                         <div className="flex items-center gap-4 pt-4">
-                            <Image
+                            {/* <Image
                                 src={testimonial.avatar}
                                 alt={testimonial.name}
                                 width={40}
                                 height={40}
                                 className="rounded-full"
-                            />
+                            /> */}
                             <div>
                                 <p className="font-semibold">{testimonial.name}</p>
                                 <p className="text-sm text-muted-foreground">{testimonial.title}</p>
